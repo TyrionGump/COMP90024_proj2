@@ -42,4 +42,4 @@
   become: yes
   template:
     src: ansible-hosts.j2
-    dest: "./inventory/hosts.ini"
+    dest: "./inventory/hosts"

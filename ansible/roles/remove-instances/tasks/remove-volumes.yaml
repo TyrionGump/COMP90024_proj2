@@ -1,9 +1,6 @@
 ---
 # tasks file for remove-volumes
-
-# Remove volumes from vars
-# host_vars\deploy.yaml line 47
-- name: Remove volume(s) on NeCTAR
+- name: Remove volume(s)
   os_volume:
     display_name: '{{ item.vol_name }}'
     size: '{{ item.vol_size }}'

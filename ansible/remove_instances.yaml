@@ -7,5 +7,4 @@
   roles:
     - role: openstack-common
     - role: remove-instances
-    - role: remove-volumes
-    - role: remove-security-groups
+    

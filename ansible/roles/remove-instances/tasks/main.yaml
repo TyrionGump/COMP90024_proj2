@@ -1,0 +1,5 @@
+---
+
+- include_tasks: remove-instances.yaml
+- include_tasks: remove-volumes.yaml
+- include_tasks: remove-security-groups.yaml
