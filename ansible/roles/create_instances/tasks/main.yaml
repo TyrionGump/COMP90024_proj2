@@ -1,0 +1,4 @@
+
+- include_tasks: openstack-volume.yaml
+- include_tasks: openstack-security-group.yaml
+- include_tasks: openstack-instance.yaml

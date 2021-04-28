@@ -1,0 +1,4 @@
+
+- include_tasks: common.yaml
+- include_tasks: mount-volumes.yaml
+- include_tasks: docker.yaml

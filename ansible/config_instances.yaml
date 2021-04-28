@@ -1,0 +1,18 @@
+- hosts: localhost
+  vars:
+    ansible_python_interpreter: /usr/bin/python3.8
+  vars_files:
+    - host_vars/instances_config.yaml
+  gather_facts: true
+
+  roles:
+    - role: openstack-common
+    
+- hosts: all
+  vars_files:
+    - host_vars/instances_config.yaml
+  gather_facts: true
+
+  roles:
+    - role: set-proxy
+    - role: setup-docker
