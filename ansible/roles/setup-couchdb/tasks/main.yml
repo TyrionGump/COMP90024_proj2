@@ -1,0 +1,22 @@
+---
+
+- name: Start a container with a couchdb
+  become: yes
+  docker_container:
+    name: "couchdb{{ansible_host}}"
+    image: "{{ couchdb_image }}"
+    ports:
+      - "{{couchdb_port}}:{{couchdb_port}}" # 5984 couchDB clustered port
+      - "4369:4369" # Erlang cluster
+      - "9100:9100" # Erlang application port
+    env:
+      NODENAME: "{{ ansible_host }}"
+      COUCHDB_USER: "{{ couchdb_user }}"
+      COUCHDB_PASSWORD: "{{ couchdb_password }}"
+      COUCHDB_SECRET: "{{ couchdb_cookie }}"
+
+
+# - name: remove container
+#   docker_container:
+#     name: "couchdb{{ansible_host}}"
+#     state: absent

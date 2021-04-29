@@ -1,7 +1,17 @@
-{% for item in groups %}
-[{{item}}]
-{%   for entry in groups[item] %}
-{{ entry }}
+{% for group in groups %}
+[{{group}}]
+{%   for ip in groups[group] %}
+{{ ip }}
 {%   endfor %}
 
 {% endfor %}
+
+[masternode]
+{{ groups['all'][0] }}
+
+[othernodes]
+{%   for ip in groups['all'] %}
+{% if not loop.first -%}
+{{ ip }}
+{% endif %}
+{%   endfor %}

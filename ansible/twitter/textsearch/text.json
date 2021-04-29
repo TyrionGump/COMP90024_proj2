@@ -1,0 +1,8 @@
+{
+  "_id": "_design/textsearch/text",
+  "indexes": {
+    "text": {
+      "index": "function (doc) { index(\"default\", doc._id); index ('text', doc.text, {store: true}); index ('language', doc.user.lang, {facet: true, store: true});}"
+    }
+  }
+}

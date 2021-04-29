@@ -4,6 +4,13 @@ ansible_user: ubuntu
 ansible_ssh_private_key_file: ~/.ssh/grp-22-key
 ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
+# couchdb vars
+couchdb_image: ibmcom/couchdb3:3.0.0
+couchdb_user: admin
+couchdb_password: admin
+couchdb_cookie: 'a192aeb9904e6590849337933b000c99'
+couchdb_port: 5984
+
 # Volume
 volumes:
   - vol_name: instance-1-vol
@@ -45,6 +52,21 @@ security_groups:
     port_range_min: 5984
     port_range_max: 5984
     remote_ip_prefix: 0.0.0.0/0
+    
+  - name: grp-couchdb-erlang-cluster
+    description: "couchDB Erlang cluster"
+    protocol: tcp
+    port_range_min: 4369
+    port_range_max: 4369
+    remote_ip_prefix: 0.0.0.0/0
+
+  - name: grp-couchdb-erlang-app
+    description: "couchDB Erlang application port"
+    protocol: tcp
+    port_range_min: 9100
+    port_range_max: 9200
+    remote_ip_prefix: 0.0.0.0/0
+
 
   - name: grp-websapp
     description: "Security group for Flask access"
