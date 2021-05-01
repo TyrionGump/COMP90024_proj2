@@ -11,6 +11,12 @@ couchdb_password: admin
 couchdb_cookie: 'a192aeb9904e6590849337933b000c99'
 couchdb_port: 5984
 
+# nginx vars
+nginx_image: nginx:latest
+restart: always
+nginx_port: 8080
+
+
 # Volume
 volumes:
   - vol_name: instance-1-vol

@@ -1,0 +1,8 @@
+---
+
+- name: Start a container with a nginx
+  docker_container:
+    name: "nginx{{ ansible_host }}"
+    image: "nginx:latest"
+    ports:
+      - "8080:80"
