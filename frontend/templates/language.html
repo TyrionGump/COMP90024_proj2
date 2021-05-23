@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="../static/js/jquery-1.11.1.js"></script>
+		<script src="../static/js/echarts.min.js"></script>
+		<script src="../static/js/echarts-wordcloud.min.js"></script>
+		<script src="../static/js/Australia.js"></script>
+		<link href="../static/css/language.css" , rel="stylesheet" />
+		<title>Language</title>
+	</head>
+	<body>
+		<header>
+			<div id="headMenu">
+				<ul>
+					<li style="color:gold">COMP90024</li>
+					<li><a href="main.html" , style="color:gold">Home</a></li>
+					<li>
+						<div class="dropdown">
+							<span style="color:gold">Topic</span>
+							<div class="dropdown_content">
+								<div class="dropdown_op"><a class="dropdown_link" , href="language.html" ,
+										style="color:aqua">Language</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="source.html" ,
+										style="color:aqua">Source</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="period.html" ,
+										style="color:aqua">Period</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="vaccine.html" ,
+										style="color:aqua">Vaccine</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="weather.html" ,
+										style="color:aqua">Weather</a></div>
+							</div>
+						</div>
+					</li>
+					<li><a href="hello.html" , style="color:gold">About us</a></li>
+					<li><a href="hello.html" , style="color:gold">Contact</a></li>
+				</ul>
+			</div>
+		</header>
+		<div id="title">
+			<h1>Language</h1>
+		</div>
+		<div id="time">我是时间</div>
+		<div class="mainbox">
+			<div class="column">
+				<div class="panel l1">
+					<h2>八个饼图</h2>
+					<div id="language_l1" , class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+				<div class="panel l2">
+					<h2>不同语言种类的score条形图</h2>
+					<div id="language_l2" , class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+			</div>
+			<div class="column">
+				<div id="language_c1" , class="map">一张map</div>
+			</div>
+			<div class="column">
+				<div class="panel r1">
+					<h2>不同语言种类的aurin对比图??</h2>
+
+					<div class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+				<div class="panel r2">
+					<h2>不同城市的所说语言的词云图 <div id="choose_city">
+							<span style="color:gold">city</span>
+							<div class="dropdown_content">
+								<div class="dropdown_op"><a class="dropdown_link" , id="sydney_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Sydney</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="melbourne_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Melbourne</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="brisbane_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Brisbane</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="perth_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Perth</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="adelaide_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Adelaide</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="goldCoast_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Gold Coast</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="canberra_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Canberra</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="newcastle_wordcloud", href="javascript:;" ,
+										style="color:aqua; font-size: 5px;">Newcastle</a></div>
+							</div>
+						</div>
+					</h2>
+
+					<div id="language_r2" , class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<script src="../static/js/flexible.js"></script>
+		<script src="../static/js/language/language_l1.js"></script>
+		<script src="../static/js/language/language_l2.js"></script>
+		<script src="../static/js/language/language_c1.js"></script>
+		<!-- 		<script src="../static/js/language/language_c2.js"></script> -->
+		<script src="../static/js/language/language_r2.js"></script>
+		<script src="../static/js/language/language_controller.js"></script>
+	</body>
+</html>
