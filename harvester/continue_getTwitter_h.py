@@ -3,12 +3,14 @@ from tweepy import StreamListener, Stream
 import couchdb
 from textblob import TextBlob
 
-consumer_key = ''
-consumer_secret = ''
-access_token = ''
-access_token_secret = ''
-ttstart = 0
-ttend = 100000
+from urllib3.exceptions import ProtocolError
+
+consumer_key = 'wCSI4LJMDch14ungsMlYBslkh'
+consumer_secret = '7YwXY6WsrtRmOl3valX1Cj2ldHlq6BQUZGic6vEw3cLcl5fzII'
+access_token = '1385200139061526540-6xhlSfy0gk6BSH33wwCUZ03y9SWJz1'
+access_token_secret = 'qMzLZi2U4FuYnUTja0GTM6MSiKzeaxaayF588T5gD35SB'
+
+count = 0
 
 try:
     couchclient = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
@@ -43,9 +45,9 @@ class Std(StreamListener):
     #     return True
 
     def on_status(self, status):
-        global ttstart
+        global count
         global ttend
-        print(status)
+        # print(status)
         text = status.text
         username = status.user.screen_name
         id_str = status.id_str
@@ -61,18 +63,21 @@ class Std(StreamListener):
         polarity = sent.polarity
         subjectivity = sent.subjectivity
         if retweeted == False:
-            if ttstart <= ttend:
-                db.save({"id": id_str,"createtime":createtime,"source":source ,"text": text, "username": username,"userlocation":userlocation,"lang": lang, "placename": placename, "geo": geo,
-                        "polarity": polarity, "subjectivity": subjectivity})
-                ttstart += 1
-            else:
-                return True
+            db.save({"id": id_str,"createtime":createtime,"source":source ,"text": text, "username": username,"userlocation":userlocation,"lang": lang, "placename": placename, "geo": geo,
+                    "polarity": polarity, "subjectivity": subjectivity})
+            count += 1
+            print(count)
         else:
             pass
 
     def on_error(self, status):
-        if status == 420:
-            return False
+        print(status)
+        if status_code == 420:
+            time.sleep(10)
+        if status_code == 429:
+            time.sleep(15*60 + 1)
+        else:
+            time.sleep(10)
 
 
 l = Std()
@@ -81,4 +86,14 @@ auth.set_access_token(access_token, access_token_secret)
 
 stream = Stream(auth, l)
 api = tweepy.API(auth)
-stream.filter(locations=[113.338953078, -43.6345972634, 153.569469029, -10.6681857235])
+while True:
+    try:
+        stream.filter(locations=[113.338953078, -43.6345972634, 153.569469029, -10.6681857235])
+    except ProtocolError as e:
+            print(f"{timestamp()} ProtocolError: {e}\n")
+    except AttributeError as e:
+        print(f"{timestamp()} AttributeError: {e}\n")
+    except Exception as e:
+        print(f"{timestamp()} Received unknown exception: {e}\n") 
+    finally:
+        continue
