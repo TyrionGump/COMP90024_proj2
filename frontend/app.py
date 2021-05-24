@@ -11,7 +11,7 @@ import utils_language
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
+# app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 
 
 @app.route('/')
@@ -250,4 +250,4 @@ def get_unemployment_r2_data():
     return jsonify(unemployment_r2_data)
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host="0.0.0.0", port=5000)
