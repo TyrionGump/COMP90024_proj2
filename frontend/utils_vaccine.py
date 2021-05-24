@@ -1,11 +1,18 @@
 import couchdb
 import numpy as np
 
-couch_client = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
+couch_client = couchdb.Server('http://admin:admin@172.26.128.226:5984/')
 db = couch_client['no_duplicate_twitter']
 
-client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-db1 = client['no_duplicate_twitter']
+couch_client1 = couchdb.Server('http://admin:admin@172.26.130.226:5984/')
+db1 = couch_client1['no_duplicate_twitter']
+
+couch_client2 = couchdb.Server('http://admin:admin@172.26.131.179:5984/')
+db2 = couch_client2['no_duplicate_twitter']
+
+couch_client3 = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
+db3 = couch_client3['no_duplicate_twitter']
+
 eight_largest_city = ['Sydney ', 'Melbourne ', 'Brisbane ', 'Perth (WA) ', 'Adelaide ', 'Gold Coast ', 'Canberra ',
                       'Newcastle ']
 eight_key = ['S y d n e y ', 'M e l b o u r n e ', 'B r i s b a n e ', 'P e r t h   ( W A ) ', 'A d e l a i d e ',
@@ -35,11 +42,6 @@ def listToString(s):
 
 # vaccine data for l1
 def vaccine_date_count():
-    view_detail = db['_design/vaccine_analysis']['views']['vaccine_date']
-    mapping = view_detail['map']
-    reducing = view_detail['reduce']
-    #client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-    db1 = client['no_duplicate_twitter']
     review = db.iterview('vaccine_analysis/vaccine_date', db1.__len__(), group=True, group_level=3)
     count = []
     date =[]
@@ -55,8 +57,6 @@ def vaccine_date_polarity_sub():
     view_detail = db['_design/vaccine_analysis']['views']['vaccine_date']
     mapping = view_detail['map']
     reducing = view_detail['reduce']"""
-    #client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-    #db1 = client['no_duplicate_twitter']
     review = db.iterview('vaccine_analysis/vaccine_date', db1.__len__(), group=True, group_level=3)
     pol = []
     date = []
@@ -76,12 +76,7 @@ def vaccine_date_polarity_sub():
 
 # vaccine data for c1
 def vaccine_map():
-    view_detail = db['_design/vaccine_analysis']['views']['vaccine_region']
-    mapping = view_detail['map']
-    reducing = view_detail['reduce']
-    #client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-    db1 = client['no_duplicate_twitter']
-    review_loc = db.iterview('vaccine_analysis/vaccine_region', db1.__len__(), group=True, group_level=1)
+    review_loc = db1.iterview('vaccine_analysis/vaccine_region', db1.__len__(), group=True, group_level=1)
     output = []
     for row in review_loc:
         if listToString(row.key) in eight_largest_city:
@@ -99,7 +94,7 @@ def vaccine_map():
 
 # vaccine data for r1
 def vaccine_aurin_compare():
-    db_aurin = couch_client['aurin_vaccine']
+    db_aurin = couch_client2['aurin_vaccine']
     state = ['NSW', 'VIC', 'QLD', 'WA', 'SA', 'ACT']
     mango = {
         "selector": {},
@@ -124,11 +119,7 @@ def vaccine_aurin_compare():
         mat[state.index(info['city'])][4] = info['response to early bird: neutral']
         mat[state.index(info['city'])][5] = info['response to early bird: agree']
 
-    view_detail = db['_design/vaccine_analysis']['views']['vaccine_region']
-    mapping = view_detail['map']
-    reducing = view_detail['reduce']
-    # client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-    review_loc = db.iterview('vaccine_analysis/vaccine_aurin', db1.__len__(), group=True, group_level=1)
+    review_loc = db2.iterview('vaccine_analysis/vaccine_aurin', db1.__len__(), group=True, group_level=1)
     eight_city_key= ['Sydney', 'Melbourne', 'Brisbane', 'Perth (WA)', 'Adelaide', 'Gold Coast', 'Canberra',
                           'Newcastle']
     count_region=np.zeros(len(eight_largest_city))
@@ -137,7 +128,7 @@ def vaccine_aurin_compare():
     count_state=np.zeros(len(state))
     for item in range(len(eight_largest_city)):
         count_state[state.index(eight_largest_city_state[item])]+=count_region[item]
-    review_loc1 = db.iterview('vaccine_analysis/vaccine_aurin', db1.__len__(), group=True, group_level=2)
+    review_loc1 = db2.iterview('vaccine_analysis/vaccine_aurin', db1.__len__(), group=True, group_level=2)
     attitude=['negative','neutral','positive']
     output = []
     for row in review_loc1:
@@ -161,21 +152,19 @@ def vaccine_aurin_compare():
 
     return output
 
-
+#print(vaccine_aurin_compare())
 
 
 # vaccine data for r2
 def vaccine_cloud():
-    view_detail = db['_design/vaccine_analysis']['views']['vaccine_region']
-    mapping = view_detail['map']
-    reducing = view_detail['reduce']
-    # client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-    db1 = client['no_duplicate_twitter']
-    review_loc = db.iterview('vaccine_analysis/vaccine_region', db1.__len__(), group=True, group_level=1)
+
+    review_loc = db3.iterview('vaccine_analysis/vaccine_region', db1.__len__(), group=True, group_level=1)
     output = []
     for row in review_loc:
         if listToString(row.key) in eight_largest_city:
             output.append({'name': listToString(row.key), 'value': row.value['count']})
     return output
+
+#print(vaccine_cloud())
 
 

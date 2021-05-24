@@ -1,11 +1,20 @@
 import couchdb
 import numpy as np
 
-couch_client = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
+couch_client = couchdb.Server('http://admin:admin@172.26.128.226:5984/')
 db = couch_client['no_duplicate_twitter']
 
-client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-db1 = client['no_duplicate_twitter']
+couch_client1 = couchdb.Server('http://admin:admin@172.26.130.226:5984/')
+db1 = couch_client1['no_duplicate_twitter']
+
+couch_client2 = couchdb.Server('http://admin:admin@172.26.131.179:5984/')
+db2 = couch_client2['no_duplicate_twitter']
+
+couch_client3 = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
+db3 = couch_client3['no_duplicate_twitter']
+
+
+
 eight_largest_city = ['Sydney ', 'Melbourne ', 'Brisbane ', 'Perth (WA) ', 'Adelaide ', 'Gold Coast ', 'Canberra ',
                       'Newcastle ']
 eight_key = ['S y d n e y ', 'M e l b o u r n e ', 'B r i s b a n e ', 'P e r t h   ( W A ) ', 'A d e l a i d e ',
@@ -60,7 +69,7 @@ def unemp_date_polarity_sub():
 
 # unemployment data for c1
 def unemp_map():
-    review_loc = db.iterview('unemployment_analysis/unemp_region', db1.__len__(), group=True, group_level=1)
+    review_loc = db1.iterview('unemployment_analysis/unemp_region', db1.__len__(), group=True, group_level=1)
     output = []
     for row in review_loc:
         if listToString(row.key) in eight_largest_city:
@@ -78,9 +87,9 @@ def unemp_map():
 
 # unemployment data for r2
 def unemployment_cloud():
-    review_loc = db.iterview('unemployment_analysis/unemp_region', db1.__len__(), group=True, group_level=1)
+    review_loc = db2.iterview('unemployment_analysis/unemp_region', db1.__len__(), group=True, group_level=1)
     output=[]
-    keyword = db.iterview('unemployment_analysis/unemp_mentioned', db1.__len__(), group=True, group_level=1)
+    keyword = db2.iterview('unemployment_analysis/unemp_mentioned', db1.__len__(), group=True, group_level=1)
     for row in review_loc:
         output.append({'name':listToString(row.key),'value':row.value['count']})
     for row in keyword:
@@ -88,7 +97,7 @@ def unemployment_cloud():
     return output
 
 def unemp_with_aurin():
-    review_loc = db.iterview('unemployment_analysis/unemp_region', db.__len__(), group=True, group_level=1)
+    review_loc = db3.iterview('unemployment_analysis/unemp_region', db.__len__(), group=True, group_level=1)
     place = []
     polar = []
     for row in review_loc:

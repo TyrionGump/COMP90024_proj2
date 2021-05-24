@@ -1,15 +1,21 @@
 import couchdb
 
 try:
-    couchclient = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
+    couch_client = couchdb.Server('http://admin:admin@172.26.128.226:5984/')
+
+    couch_client1 = couchdb.Server('http://admin:admin@172.26.130.226:5984/')
+
+    couch_client2 = couchdb.Server('http://admin:admin@172.26.131.179:5984/')
+
+    couch_client3 = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
 except:
     print("Cannot find CouchDB Server ... Exiting\n")
     print("----_Stack Trace_-----\n")
     raise
 
-db1 = couchclient['language_place_number']
-db2 = couchclient['language_placename']
-db3 = couchclient['language_psavg']
+db1 = couch_client['language_place_number']
+db2 = couch_client1['language_placename']
+db3 = couch_client2['language_psavg']
 
 mango1 = {"selector": {}, "limit": db1.__len__()}
 mango2 = {"selector": {}, "limit": db2.__len__()}
@@ -78,7 +84,7 @@ def get_language_r2_data():
 # print(list3)
 
 def get_language_c1_data():
-    dbworld = couchclient['lan_worldmap']
+    dbworld = couch_client['lan_worldmap']
     mango1 = {"selector": {}, "limit": dbworld.__len__()}
     for items in dbworld.find(mango1):
         items.pop("_id")

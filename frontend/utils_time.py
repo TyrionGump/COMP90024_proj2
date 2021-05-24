@@ -1,11 +1,18 @@
 import couchdb
 import numpy as np
 
-couch_client = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
+couch_client = couchdb.Server('http://admin:admin@172.26.128.226:5984/')
 db = couch_client['no_duplicate_twitter']
 
-client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
-db1 = client['no_duplicate_twitter']
+couch_client1 = couchdb.Server('http://admin:admin@172.26.130.226:5984/')
+db1 = couch_client1['no_duplicate_twitter']
+
+couch_client2 = couchdb.Server('http://admin:admin@172.26.131.179:5984/')
+db2 = couch_client2['no_duplicate_twitter']
+
+couch_client3 = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
+db3 = couch_client3['no_duplicate_twitter']
+
 eight_largest_city = ['Sydney ', 'Melbourne ', 'Brisbane ', 'Perth (WA) ', 'Adelaide ', 'Gold Coast ', 'Canberra ',
                       'Newcastle ']
 eight_key = ['S y d n e y ', 'M e l b o u r n e ', 'B r i s b a n e ', 'P e r t h   ( W A ) ', 'A d e l a i d e ',
@@ -73,10 +80,10 @@ def time_sub_pol_trend():
 
 # time data for c1
 def time_map_24():
-    view_detail = db['_design/time_analysis']['views']['time_region_polarity']
+    view_detail = db1['_design/time_analysis']['views']['time_region_polarity']
     mapping = view_detail['map']
     reducing = view_detail['reduce']
-    review_time_pol = db.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=2)
+    review_time_pol = db1.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=2)
     """
     view_detail = db['_design/time_analysis']['views']['time_region_sub']
     mapping = view_detail['map']
@@ -102,13 +109,13 @@ def time_map_24():
 
 # time data for r1
 def time_region_count_percent_plot():
-    view_detail = db['_design/time_analysis']['views']['time_region_polarity']
+    view_detail = db2['_design/time_analysis']['views']['time_region_polarity']
     mapping = view_detail['map']
     reducing = view_detail['reduce']
     #client = couchdb.client.Server('http://admin:admin@172.26.130.240:5984/')
     #db1 = client['no_duplicate_twitter']
-    review_map1 = db.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=2)
-    review_map2 = db.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=1)
+    review_map1 = db2.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=2)
+    review_map2 = db2.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=1)
     eight_key_l1 = ['Sydney', 'Melbourne', 'Brisbane', 'Perth (WA)', 'Adelaide', 'Gold Coast', 'Canberra',
                     'Newcastle']
     mat=np.zeros((24,8))
@@ -133,11 +140,11 @@ def time_region_count_percent_plot():
 
 # time data for r2
 def time_cloud():
-    view_detail = db['_design/time_analysis']['views']['time_region_polarity']
+    view_detail = db3['_design/time_analysis']['views']['time_region_polarity']
     mapping = view_detail['map']
     reducing = view_detail['reduce']
-    db1 = client['no_duplicate_twitter']
-    review_map1 = db.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=2)
+    db1 = couch_client3['no_duplicate_twitter']
+    review_map1 = db3.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=2)
     #review_map2 = db.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=None)
 
     morning=['06','07','08 ','09 ','10','11','12']
