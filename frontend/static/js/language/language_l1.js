@@ -78,28 +78,56 @@ var language_l1_option = {
 			]
 		},
 		tooltip: {},
-		
+		legend: {
+			show:true
+		},
+
 		calculable: true,
 		series: [{
+			label: {
+				normal: {
+					position: 'inner',
+					show: false
+				}
+			},
+
 			type: 'pie',
 			radius: "25%",
 			center: ["25%", "25%"],
 		}, {
+			label: {
+				normal: {
+					position: 'inner',
+					show: false
+				}
+			},
 			type: 'pie',
 			radius: "25%",
 			center: ["75%", "25%"]
 		}, {
+			label: {
+				normal: {
+					position: 'inner',
+					show: false
+				}
+			},
 			type: 'pie',
 			radius: "25%",
 			center: ["25%", "65%"]
 		}, {
+			label: {
+				normal: {
+					position: 'inner',
+					show: false
+				}
+			},
 			type: 'pie',
 			radius: "25%",
 			center: ["75%", "65%"]
 		}]
 	},
 	options: [{
-			
+
 			series: [{
 				name: 'Sydney',
 				data: language_data['first_4']['Sydney']
@@ -110,7 +138,7 @@ var language_l1_option = {
 				name: 'Brisbane',
 				data: language_data['first_4']['Brisbane']
 			}, {
-				name: 'Perth', 
+				name: 'Perth',
 				data: language_data['first_4']['Perth']
 			}]
 		},

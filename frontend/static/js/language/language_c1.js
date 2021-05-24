@@ -53,14 +53,14 @@ var language_c1_scatter_option = {
 		coordinateSystem: 'geo', // series坐标系类型
 		data: language_map_data,
 		symbolSize: function(val) {
-			return val[2][0] / 100;
+			return val[2] * 200;
 		},
 		encode: {
 			tooltip: [2],
 		},
 		tooltip: {
 			formatter: function(params) {
-				return params.marker + ' ' + params.name + '<br/>' + params.value[2][0] + '<br/>' + params.value[2][1]
+				return params.marker + ' ' + params.name + '<br/>' + 'Average Polarity for Language: '+ params.value[2]
 			}
 		}
 
@@ -69,7 +69,7 @@ var language_c1_scatter_option = {
 }
 
 language_c1.setOption(language_c1_option);
-language_c1_scatter.setOption(language_c1_scatter_option)
+
 window.addEventListener('resize', function() {
 	language_c1.resize()
 })

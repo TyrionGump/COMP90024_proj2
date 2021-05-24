@@ -6,6 +6,8 @@ from datetime import timedelta
 import utils_source
 import utils_time
 import utils_vaccine
+import util_unemployment
+import utils_language
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -42,80 +44,37 @@ def vaccine():
     return render_template('vaccine.html')
 
 
+@app.route('/unemployment.html', methods=['GET', 'POST'])
+def unemployment():
+    return render_template('unemployment.html')
+
+
 # 1 -------------------------------------------------------------- Language 部分 start
 @app.route('/language/l1')
 def get_language_l1_data():
-    language_l1_data = {'Sydney': [{'name': 'english', 'value': 1231},
-                                   {'name': 'chinese', 'value': 2412},
-                                   {'name': 'spanish', 'value': 234}],
-                        'Melbourne': [{'name': 'english', 'value': 4562},
-                                      {'name': 'chinese', 'value': 3252},
-                                      {'name': 'spanish', 'value': 344}],
-                        'Brisbane': [{'name': 'english', 'value': 1341},
-                                     {'name': 'chinese', 'value': 2212},
-                                     {'name': 'spanish', 'value': 2254}],
-                        'Perth': [{'name': 'english', 'value': 2131},
-                                  {'name': 'chinese', 'value': 1412},
-                                  {'name': 'spanish', 'value': 634}],
-                        'Adelaide': [{'name': 'english', 'value': 1435},
-                                     {'name': 'chinese', 'value': 6745},
-                                     {'name': 'spanish', 'value': 42}],
-                        'GoldCoast': [{'name': 'english', 'value': 346},
-                                      {'name': 'chinese', 'value': 653},
-                                      {'name': 'spanish', 'value': 452}],
-                        'Canberra': [{'name': 'english', 'value': 456},
-                                     {'name': 'chinese', 'value': 3465},
-                                     {'name': 'spanish', 'value': 6544}],
-                        'Newcastle': [{'name': 'english', 'value': 3231},
-                                      {'name': 'chinese', 'value': 9756},
-                                      {'name': 'spanish', 'value': 246}]}
+    language_l1_data = utils_language.get_language_l1_data()
     return jsonify(language_l1_data)
 
 
 @app.route('/language/l2')
 def get_language_l2_data():
-    language_l2_data = {'legend': ['score_1', 'score_2'],
-                        'xAxis': ['Chinese', 'English', 'Spanish', 'Germany'],
-                        'data': [[100, 200, 234, 567], [200, 100, 123, 145]]}
+    language_l2_data = utils_language.get_language_l2_data()
+    # {'legend': ['score_1', 'score_2'],
+    #  'xAxis': ['Chinese', 'English', 'Spanish', 'Germany'],
+    #  'data': [[100, 200, 234, 567], [200, 100, 123, 145]]}
     return jsonify(language_l2_data)
 
 
 @app.route('/language/c1')
 def get_language_c1_scatter_data():
-    language_c1_scatter_data = {'data_name': 'android',
-                                'data': [{'name': 'melbourne', 'value': [144.96316, -37.81422, [15000, 20000]]},
-                                         {'name': 'brisbane', 'value': [153.021072, -27.470125, [1000, 2000]]}]}
+    language_c1_scatter_data = utils_language.get_language_c1_data()
     return jsonify(language_c1_scatter_data)
 
 
 @app.route('/language/r2', methods=['GET', 'POST'])
 def get_language_r2_data():
     city_name = request.values.get("name")
-    language_r2_data = {'Sydney': [{'name': 'Yanhao', 'value': 123214},
-                                {'name': 'Cindy', 'value': 23545},
-                                {'name': 'asdasfqf', 'value': 134424}],
-                     'Melbourne': [{'name': 'Yanhao', 'value': 1214},
-                                   {'name': 'Cindy', 'value': 235535},
-                                   {'name': 'asdasfqf', 'value': 12424}],
-                     'Brisbane': [{'name': 'Yanhao', 'value': 123214},
-                                  {'name': 'Cindy', 'value': 235235},
-                                  {'name': 'asdasfqf', 'value': 12424}],
-                     'Perth': [{'name': 'Yanhao', 'value': 123214},
-                               {'name': 'Cindy', 'value': 235425},
-                               {'name': 'asdasfqf', 'value': 124344}],
-                     'Adelaide': [{'name': 'Yanhao', 'value': 123214},
-                                  {'name': 'Cindy', 'value': 232345},
-                                  {'name': 'asdasfqf', 'value': 123424}],
-                     'GoldCoast': [{'name': 'Yanhao', 'value': 123214},
-                                   {'name': 'Cindy', 'value': 223445},
-                                   {'name': 'asdasfqf', 'value': 12424}],
-                     'Canberra': [{'name': 'Yanhao', 'value': 123212314},
-                                  {'name': 'Cindy', 'value': 23535},
-                                  {'name': 'asdasfqf', 'value': 12424}],
-                     'Newcastle': [{'name': 'Yanhao', 'value': 124214},
-                                   {'name': 'Cindy', 'value': 2354515},
-                                   {'name': 'asdasfqf', 'value': 12424}]
-                     }
+    language_r2_data = utils_language.get_language_r2_data()
 
     return jsonify(language_r2_data)
 
@@ -225,26 +184,70 @@ def get_vaccine_l2_data():
                       'data': [vaccine_l2_original_data[1], vaccine_l2_original_data[2]]}
     return jsonify(source_l2_data)
 
+
 @app.route('/vaccine/c1')
 def get_vaccine_c1_scatter_data():
     vaccine_c1_scatter_data = {'data_name': 'Average polarity about vaccine',
                                'data': utils_vaccine.vaccine_map()}
     return jsonify(vaccine_c1_scatter_data)
 
+
 @app.route('/vaccine/r1')
 def get_vaccine_r1_data():
     vaccine_r1_data = {'legend': ['Question 1 Disagree', 'Question 2 Disagree',
                                   'Question 1 Neutral', 'Question 1 Agree',
                                   'Question 2 Neutral', 'Question 2 Agree'],
-                       'data':utils_vaccine.vaccine_aurin_compare()}
+                       'data': utils_vaccine.vaccine_aurin_compare()}
     return jsonify(vaccine_r1_data)
+
 
 @app.route('/vaccine/r2', methods=['GET', 'POST'])
 def get_vaccine_r2_data():
     vaccine_r2_data = utils_vaccine.vaccine_cloud()
 
     return jsonify(vaccine_r2_data)
+
+
 # 4 -------------------------------------------------------------- Vaccine 部分 end
+
+# 5 -------------------------------------------------------------- Unemployment 部分 start
+@app.route('/unemployment/l1')
+def get_unemployment_l1_data():
+    unemployment_l1_original_data = util_unemployment.unemp_date_count()
+    unemployment_l1_data = {'xAxis': unemployment_l1_original_data[0],
+                            'data': unemployment_l1_original_data[1]}
+    return jsonify(unemployment_l1_data)
+
+
+@app.route('/unemployment/l2')
+def get_unemployment_l2_data():
+    unemployment_l2_data = util_unemployment.unemp_date_polarity_sub()
+    unemployment_l2_data = {'legend': ['polarity', 'subjective'],
+                            'xAxis': unemployment_l2_data[0],
+                            'data': [unemployment_l2_data[1], unemployment_l2_data[2]]}
+    return jsonify(unemployment_l2_data)
+
+
+@app.route('/unemployment/c1')
+def get_unemployment_scatter_c1_data():
+    unemployment_scatter_c1_data = {'data_name': 'Average polarity for unemployment',
+                                    'data': util_unemployment.unemp_map()}
+    return jsonify(unemployment_scatter_c1_data)
+
+
+@app.route('/unemployment/r1')
+def get_unemployment_r1_data():
+    unemployment_r1_original_data = util_unemployment.unemp_with_aurin()
+    unemployment_r1_data = {'legend': unemployment_r1_original_data[0],
+                            'xAxis': [unemployment_r1_original_data[1], unemployment_r1_original_data[2]],
+                            'data': [unemployment_r1_original_data[3], unemployment_r1_original_data[4]]}
+    return jsonify(unemployment_r1_data)
+
+
+@app.route('/unemployment/r2')
+def get_unemployment_r2_data():
+    unemployment_r2_data = util_unemployment.unemployment_cloud()
+    return jsonify(unemployment_r2_data)
 
 if __name__ == '__main__':
     app.run()

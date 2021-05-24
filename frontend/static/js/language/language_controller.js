@@ -26,7 +26,7 @@ function get_language_l2_data() {
 			language_l2.clear();
 			language_l2_option.legend.data = data.legend;
 			language_l2_option.xAxis[0].data = data.xAxis;
-			for (var i = 0; i < data.legend.length; i++) {
+			for (var i = 0; i < 2; i++) {
 				language_l2_option.series[i].name = data.legend[i];
 				language_l2_option.series[i].data = data.data[i];
 			}
@@ -53,15 +53,12 @@ function get_language_c1_data() {
 	})
 }
 
-function get_language_r2_data(city) {
+function get_language_r2_data() {
 	$.ajax({
 		url: "/language/r2",
-		type: "post",
-		data: city,
 		success: function(data) {
 			language_r2.clear();
-			city_name = city.name
-			language_r2_option.series[0].data = data[city_name]
+			language_r2_option.series[0].data = data
 			language_r2.setOption(language_r2_option)
 		},
 		error: function() {
@@ -115,4 +112,4 @@ newCastle_wordcloud_data.addEventListener("click", function() {
 get_language_l1_data()
 get_language_l2_data()
 get_language_c1_data()
-get_language_r2_data({"name": "Melbourne"})
+get_language_r2_data()

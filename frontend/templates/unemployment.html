@@ -1,9 +1,86 @@
 <!DOCTYPE html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title></title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<script src="../static/js/jquery-1.11.1.js"></script>
+		<script src="../static/js/echarts.min.js"></script>
+		<script src="../static/js/echarts-wordcloud.min.js"></script>
+		<script src="../static/js/Australia.js"></script>
+		<link href="../static/css/unemployment.css" , rel="stylesheet" />
+		<title>Unemployment</title>
 	</head>
 	<body>
+		<header>
+			<div id="headMenu">
+				<ul>
+					<li style="color:gold">COMP90024</li>
+					<li><a href="main.html" , style="color:gold">Home</a></li>
+					<li>
+						<div class="dropdown">
+							<span style="color:gold">Topic</span>
+							<div class="dropdown_content">
+								<div class="dropdown_op"><a class="dropdown_link" , href="language.html" ,
+										style="color:aqua">Language</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="source.html" ,
+										style="color:aqua">Source</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="period.html" ,
+										style="color:aqua">Period</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="vaccine.html" ,
+										style="color:aqua">Vaccine</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="weather.html" ,
+										style="color:aqua">Unemployment</a></div>
+							</div>
+						</div>
+					</li>
+					<li><a href="hello.html" , style="color:gold">About us</a></li>
+					<li><a href="hello.html" , style="color:gold">Contact</a></li>
+				</ul>
+			</div>
+		</header>
+		<div id="title">
+			<h1>Unemployment</h1>
+		</div>
+		<div id="time">我是时间</div>
+		<div class="mainbox">
+			<div class="column">
+				<div class="panel l1">
+					<h2>不同日期关于unemployment的推特数量折线图</h2>
+					<div id="unemployment_l1" , class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+				<div class="panel l2">
+					<h2>不同日期关于unemployment的两个分数折线图</h2>
+					<div id="unemployment_l2" , class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+			</div>
+			<div class="column">
+				<div id="unemployment_c1", class="map">一张map</div>
+			</div>
+			<div class="column">
+				<div class="panel r1">
+					<h2>和Aurin的一个对比分析图</h2>
+
+					<div id="unemployment_r1", class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+				<div class="panel r2">
+					<h2>一个不知道名字但说可以存在的云图</h2>
+
+					<div id="unemployment_r2" , class="chart"></div>
+					<div class="panel_footer"></div>
+				</div>
+			</div>
+		</div>
+
+		<script src="../static/js/flexible.js"></script>
+		<script src="../static/js/unemployment/unemployment_l1.js"></script>
+		<script src="../static/js/unemployment/unemployment_l2.js"></script>
+		<script src="../static/js/unemployment/unemployment_c1.js"></script>
+		<script src="../static/js/unemployment/unemployment_r1.js"></script>
+		<script src="../static/js/unemployment/unemployment_r2.js"></script>
+		<script src="../static/js/unemployment/unemployment_controller.js"></script>
 	</body>
 </html>

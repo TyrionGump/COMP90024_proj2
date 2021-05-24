@@ -1,11 +1,15 @@
 var app = {};
-var language_l2 = echarts.init(document.getElementById("language_l2"));
+
+var language_l2 = echarts.init(document.getElementById('language_l2'));
+
+
 var posList = [
     'left', 'right', 'top', 'bottom',
     'inside',
     'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
     'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
 ];
+
 app.configParameters = {
     rotate: {
         min: -90,
@@ -83,7 +87,7 @@ var labelOption = {
     }
 };
 
-var language_l2_option =  {
+var language_l2_option = {
     tooltip: {
         trigger: 'axis',
         axisPointer: {
@@ -109,7 +113,7 @@ var language_l2_option =  {
     xAxis: [
         {
             type: 'category',
-            axisTick: {show: false},
+            // axisTick: {show: false},
             data: ['2012', '2013']
         }
     ],
@@ -123,24 +127,22 @@ var language_l2_option =  {
             name: 'Forest',
             type: 'bar',
             barGap: 0,
-            label: labelOption,
             emphasis: {
                 focus: 'series'
             },
-            data: [320, 332, 123]
+            data: [320, 332]
         },
         {
             name: 'Steppe',
             type: 'bar',
-            label: labelOption,
             emphasis: {
                 focus: 'series'
             },
-            data: [220, 182, 456]
+            data: [220, 182]
         }
     ]
 };
-language_l2.setOption(language_l2_option);
+
 window.addEventListener('resize', function() {
 	language_l2.resize()
 })

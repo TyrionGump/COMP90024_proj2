@@ -160,7 +160,7 @@ def vaccine_aurin_compare():
         output.append(legend)
 
     return output
-print(vaccine_aurin_compare())
+
 
 
 
@@ -177,4 +177,5 @@ def vaccine_cloud():
         if listToString(row.key) in eight_largest_city:
             output.append({'name': listToString(row.key), 'value': row.value['count']})
     return output
+
 
