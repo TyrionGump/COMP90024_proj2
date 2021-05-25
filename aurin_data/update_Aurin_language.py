@@ -1,12 +1,20 @@
+# ====================================
+# COMP90024 Cluster and Cloud Computing
+# Group 22 - Assignment 2
+# Ran Liang 1162222
+# Yulun Huang 910398
+# Yubo Sun 1048638
+# Yanhao Wang 1142087
+# Xindi Fang 749394
+# Last Updated: 2021-05-25
+# Description: the language spoken at home 2020 data from AURIN to CouchDB database with preprocessed format.
+# Related DB Name: aurin_language
+# ====================================
+
 import couchdb
 import json
 from language_tags import tags
-"""
-Last Updated: 2021.05.25
-By: Yulun Huang
-Content: Upload the language spoken at home 2020 data from AURIN to CouchDB database with preprocessed format.
-CouchDB Databsae: aurin_language
-"""
+
 couchclient = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
 datainfo = "aurin_language"
 if couchclient.__contains__(datainfo):
