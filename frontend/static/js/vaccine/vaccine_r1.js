@@ -1,5 +1,11 @@
 var vaccine_r1 = echarts.init(document.getElementById("vaccine_r1"));
 var vaccine_r1_option = {
+	tooltip : {
+	       trigger: 'item',
+		   formatter: function(params){
+			   return params.marker + "<br/>" + params.seriesName + "<br/>"+  params.value[0] + "<br/>" + params.value[1]
+		   }
+	 },
 	legend: {
 	    textStyle: {
 	    	color: "white",

@@ -57,13 +57,30 @@
 				</div>
 			</div>
 			<div class="column">
+				<div id="language_description"><h2>描述一下这个页面</h2></div>
 				<div id="language_c1" , class="map">一张map</div>
 			</div>
 			<div class="column">
 				<div class="panel r1">
-					<h2>不同语言种类的aurin对比图??</h2>
+					<h2>不同语言种类的aurin对比图??<div id="choose_city">
+							<span style="color: aliceblue;">(Switch)</span>
+							<div class="dropdown_content">
+								<div class="dropdown_op"><a class="dropdown_link" , id="Sydney_wordcloud" ,
+										href="javascript:;",
+										style="color:whitesmoke">Sydney</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="Melbourne_wordcloud" ,
+										href="javascript:;",
+										style="color:whitesmoke">Melbourne</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="Brisbane_wordcloud" ,
+										href="javascript:;",
+										style="color:whitesmoke">Brisbane</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , id="Adelaide_wordcloud" ,
+										href="javascript:;",
+										style="color:whitesmoke">Adelaide</a></div>
+							</div>
+						</div></h2>
 
-					<div class="chart"></div>
+					<div id="language_r1", class="chart"></div>
 					<div class="panel_footer"></div>
 				</div>
 				<div class="panel r2">
@@ -83,7 +100,7 @@
 		<script src="../static/js/language/language_l1.js"></script>
 		<script src="../static/js/language/language_l2.js"></script>
 		<script src="../static/js/language/language_c1.js"></script>
-		<!-- 		<script src="../static/js/language/language_c2.js"></script> -->
+		<script src="../static/js/language/language_r1.js"></script>
 		<script src="../static/js/language/language_r2.js"></script>
 		<script src="../static/js/language/language_controller.js"></script>
 	</body>

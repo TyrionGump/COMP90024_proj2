@@ -39,11 +39,7 @@ def get_language_l1_data():
         for i in items[1]:
             list.append({'name':i[0],'value':i[1]})
         dict.update({items[0]:list})
-    print(len(dict))
     return dict
-
-
-
 
 
 def get_language_l2_data():
@@ -56,17 +52,7 @@ def get_language_l2_data():
              'xAxis': [i for i in i3.keys()],
              'data':[[j[0] for j in i3.values()],[j[1] for j in i3.values()]]
              }
-    # print([i for i in i3.keys()])
-    # print([j for j in i3.values()])
-    # print([j[0] for j in i3.values()])
-    # print([j[1] for j in i3.values()])
     return dict3
-
-
-
-
-
-
 
 
 def get_language_r2_data():
@@ -79,9 +65,7 @@ def get_language_r2_data():
     for items in i2.items():
         list3.append({'name':items[0],'value':items[1]})
     return list3
-    # print(items[0])
-    # print(items[1])
-# print(list3)
+
 
 def get_language_c1_data():
     dbworld = couch_client['lan_worldmap']
@@ -93,4 +77,60 @@ def get_language_c1_data():
         i2 = items.copy()
     return i2
 
-print(get_language_c1_data())
+
+def get_language_r1_data():
+    db_aurin = couch_client3['aurin_language']
+    dictaurin = {}
+    mango_aurin = {"selector": {}, "limit": db_aurin.__len__()}
+    for items in db_aurin.find(mango_aurin):
+        if items['city'] in ["Sydney", "Melbourne", "Brisbane", "Adelaide"]:
+            items.pop("_id")
+            items.pop("_rev")
+            i = items.copy()
+            city = i["city"]
+            del i['city']
+            dc = {k: v for k, v in sorted(i.items(), key=lambda item: item[1], reverse=True)}
+            five = {k: dc[k] for k in list(dc)[:5]}
+            dictaurin.update({city: five})
+
+    db_twitter = couch_client3['language_place_number']
+    mango_twitter = {"selector": {}, "limit": db_twitter.__len__()}
+    listtwitter = []
+    for items in db_twitter.find(mango_twitter):
+        listtwitter.append(['Sydney', items['Sydney']])
+        listtwitter.append(['Melbourne', items['Melbourne']])
+        listtwitter.append(['Brisbane', items['Brisbane']])
+        listtwitter.append(['Adelaide', items['Adelaide']])
+
+    dicttwifinal = {}
+    for items in listtwitter:
+        city = items[0]
+        langlist = items[1]
+        langlist.sort(key=lambda x: x[1], reverse=True)
+        langlist = [x for x in langlist if x[0] != 'und']
+        dict1 = {}
+        for k in langlist[:5]:
+            dict1.update({k[0]: k[1]})
+        dicttwifinal.update({city: dict1})
+    dicttwiaurin = {}
+    for k, v in dictaurin.items():
+        if k in dicttwifinal.keys():
+            keys = []
+            values = [{"value": 5, "itemStyle": {"color": '#008000'}},
+                      {"value": 4, "itemStyle": {"color": '#008000'}},
+                      {"value": 3, "itemStyle": {"color": '#008000'}},
+                      {"value": 2, "itemStyle": {"color": '#008000'}},
+                      {"value": 1, "itemStyle": {"color": '#008000'}},
+                      {"value": 5, "itemStyle": {"color": '#FF0000'}},
+                      {"value": 4, "itemStyle": {"color": '#FF0000'}},
+                      {"value": 3, "itemStyle": {"color": '#FF0000'}},
+                      {"value": 2, "itemStyle": {"color": '#FF0000'}},
+                      {"value": 1, "itemStyle": {"color": '#FF0000'}}
+                      ]
+            data = []
+            for items in v.items():
+                keys.append(items[0])
+            for items in dicttwifinal[k].items():
+                keys.append(items[0])
+            dicttwiaurin.update({k: {'xAxis': keys, 'data': values}})
+    return dicttwiaurin

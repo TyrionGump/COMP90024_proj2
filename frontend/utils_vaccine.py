@@ -162,7 +162,7 @@ def vaccine_cloud():
     output = []
     for row in review_loc:
         if listToString(row.key) in eight_largest_city:
-            output.append({'name': listToString(row.key), 'value': row.value['count']})
+            output.append({'name': listToString(row.key), 'value': row.value['average']})
     return output
 
 #print(vaccine_cloud())

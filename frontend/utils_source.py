@@ -14,7 +14,7 @@ couch_client3 = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
 db3 = couch_client3['no_duplicate_twitter']
 
 eight_largest_city = ['Sydney ', 'Melbourne ', 'Brisbane ', 'Perth (WA) ', 'Adelaide ', 'Gold Coast ', 'Canberra ',
-                      'Newcastle ']
+                          'Newcastle ']
 eight_key = ['S y d n e y ', 'M e l b o u r n e ', 'B r i s b a n e ', 'P e r t h   ( W A ) ', 'A d e l a i d e ',
              'G o l d   C o a s t ', 'C a n b e r r a ',
              'N e w c a s t l e ']

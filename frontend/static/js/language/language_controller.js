@@ -53,6 +53,43 @@ function get_language_c1_data() {
 	})
 }
 
+function get_language_r1_data(city) {
+	$.ajax({
+		url: "/language/r1",
+		type: "post",
+		data: city,
+		success: function(data) {
+			language_r1.clear();
+			city_name = city.name
+			language_r1_option.series[0].data = data[city_name]['data']
+			language_r1_option.xAxis.data = data[city_name]['xAxis']
+			language_r1.setOption(language_r1_option)
+		},
+		error: function() {
+			alert('Error: cannot get data of language r1')
+		}
+	})
+}
+
+var sydney_wordcloud_data = document.getElementById('Sydney_wordcloud');
+sydney_wordcloud_data.addEventListener("click", function() {
+	get_language_r1_data({"name": "Sydney"})
+})
+var melbourne_wordcloud_data = document.getElementById('Melbourne_wordcloud');
+melbourne_wordcloud_data.addEventListener("click", function() {
+	get_language_r1_data({"name": "Melbourne"})
+})
+var brisbane_wordcloud_data = document.getElementById('Brisbane_wordcloud');
+brisbane_wordcloud_data.addEventListener("click", function() {
+	get_language_r1_data({"name": "Brisbane"})
+})
+var adelaide_wordcloud_data = document.getElementById('Adelaide_wordcloud');
+adelaide_wordcloud_data.addEventListener("click", function() {
+	get_language_r1_dataa({"name": "Adelaide"})
+})
+
+
+
 function get_language_r2_data() {
 	$.ajax({
 		url: "/language/r2",
@@ -62,54 +99,14 @@ function get_language_r2_data() {
 			language_r2.setOption(language_r2_option)
 		},
 		error: function() {
-			alert('Error: cannot get data of period r2')
+			alert('Error: cannot get data of language r2')
 		}
 	})
 }
-
-var sydney_wordcloud_data = document.getElementById('sydney_wordcloud')
-sydney_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "Sydney"})
-})
-
-var melbourne_wordcloud_data = document.getElementById("melbourne_wordcloud")
-melbourne_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "Melbourne"})
-})
-
-var brisbane_wordcloud_data = document.getElementById("brisbane_wordcloud")
-brisbane_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "Brisbane"})
-})
-
-var perth_wordcloud_data = document.getElementById("perth_wordcloud")
-perth_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "Perth"})
-})
-
-var adelaide_wordcloud_data = document.getElementById("adelaide_wordcloud")
-adelaide_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "Adelaide"})
-})
-
-var goldCoast_wordcloud_data = document.getElementById("goldCoast_wordcloud")
-goldCoast_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "GoldCoast"})
-})
-
-var canberra_wordcloud_data = document.getElementById("canberra_wordcloud")
-canberra_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "Canberra"})
-})
-
-var newCastle_wordcloud_data = document.getElementById("newcastle_wordcloud")
-newCastle_wordcloud_data.addEventListener("click", function() {
-	get_language_r2_data({"name": "Newcastle"})
-})
-
 
 
 get_language_l1_data()
 get_language_l2_data()
 get_language_c1_data()
+get_language_r1_data({"name": "Sydney"})
 get_language_r2_data()

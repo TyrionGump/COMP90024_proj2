@@ -186,6 +186,7 @@ header {
 	right: 0.2rem;
 	font-size: 0.1rem;
 }
+
 #choose_city:hover .dropdown_content {
 	display: block;
 	z-index: 1;

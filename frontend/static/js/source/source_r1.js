@@ -9,7 +9,7 @@ var source_r1_option = {
         trigger: 'axis',
         axisPointer: {
             type: 'shadow'
-        }
+        },
     },
     legend: {
         textStyle: {

@@ -69,17 +69,15 @@ var language_l1_option = {
 			// loop: false,
 			autoPlay: true,
 			// currentIndex: 2,
-			playInterval: 3000,
-			// controlStyle: {
-			//     position: 'left'
-			// },
+			playInterval: 5000,
 			data: [
 				"first 4 cities", "last 4 cities"
 			]
 		},
+		
 		tooltip: {},
 		legend: {
-			show:true
+			show:false
 		},
 
 		calculable: true,
@@ -90,10 +88,9 @@ var language_l1_option = {
 					show: false
 				}
 			},
-
 			type: 'pie',
-			radius: "25%",
-			center: ["25%", "25%"],
+			radius: "33%",
+			center: ["25%", "20%"],
 		}, {
 			label: {
 				normal: {
@@ -102,8 +99,8 @@ var language_l1_option = {
 				}
 			},
 			type: 'pie',
-			radius: "25%",
-			center: ["75%", "25%"]
+			radius: "33%",
+			center: ["75%", "20%"]
 		}, {
 			label: {
 				normal: {
@@ -112,8 +109,8 @@ var language_l1_option = {
 				}
 			},
 			type: 'pie',
-			radius: "25%",
-			center: ["25%", "65%"]
+			radius: "33%",
+			center: ["25%", "65%"],
 		}, {
 			label: {
 				normal: {
@@ -122,13 +119,17 @@ var language_l1_option = {
 				}
 			},
 			type: 'pie',
-			radius: "25%",
+			radius: "33%",
 			center: ["75%", "65%"]
 		}]
 	},
 	options: [{
 
 			series: [{
+				title: {
+					text: "Sydney",
+					show:true
+				},
 				name: 'Sydney',
 				data: language_data['first_4']['Sydney']
 			}, {
@@ -160,7 +161,7 @@ var language_l1_option = {
 
 	]
 };
-language_l1.setOption(language_l1_option);
+
 window.addEventListener('resize', function() {
 	language_l1.resize()
 })

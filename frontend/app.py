@@ -71,11 +71,15 @@ def get_language_c1_scatter_data():
     return jsonify(language_c1_scatter_data)
 
 
+@app.route('/language/r1', methods=['GET', 'POST'])
+def get_language_r1_data():
+    language_r1_data = utils_language.get_language_r1_data()
+    return jsonify(language_r1_data)
+
+
 @app.route('/language/r2', methods=['GET', 'POST'])
 def get_language_r2_data():
-    city_name = request.values.get("name")
     language_r2_data = utils_language.get_language_r2_data()
-
     return jsonify(language_r2_data)
 
 
@@ -194,9 +198,8 @@ def get_vaccine_c1_scatter_data():
 
 @app.route('/vaccine/r1')
 def get_vaccine_r1_data():
-    vaccine_r1_data = {'legend': ['Question 1 Disagree', 'Question 2 Disagree',
-                                  'Question 1 Neutral', 'Question 1 Agree',
-                                  'Question 2 Neutral', 'Question 2 Agree'],
+    vaccine_r1_data = {'legend': ['Question 1 Disagree', 'Question 1 Neutral', 'Question 1 Agree',
+                                  'Question 2 Disagree', 'Question 2 Neutral', 'Question 2 Agree'],
                        'data': utils_vaccine.vaccine_aurin_compare()}
     return jsonify(vaccine_r1_data)
 

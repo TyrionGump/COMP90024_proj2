@@ -3,89 +3,6 @@ var app = {};
 var language_l2 = echarts.init(document.getElementById('language_l2'));
 
 
-var posList = [
-    'left', 'right', 'top', 'bottom',
-    'inside',
-    'insideTop', 'insideLeft', 'insideRight', 'insideBottom',
-    'insideTopLeft', 'insideTopRight', 'insideBottomLeft', 'insideBottomRight'
-];
-
-app.configParameters = {
-    rotate: {
-        min: -90,
-        max: 90
-    },
-    align: {
-        options: {
-            left: 'left',
-            center: 'center',
-            right: 'right'
-        }
-    },
-    verticalAlign: {
-        options: {
-            top: 'top',
-            middle: 'middle',
-            bottom: 'bottom'
-        }
-    },
-    position: {
-        options: posList.reduce(function (map, pos) {
-            map[pos] = pos;
-            return map;
-        }, {})
-    },
-    distance: {
-        min: 0,
-        max: 100
-    }
-};
-
-app.config = {
-    rotate: 90,
-    align: 'left',
-    verticalAlign: 'middle',
-    position: 'insideBottom',
-    distance: 15,
-    onChange: function () {
-        var labelOption = {
-            normal: {
-                rotate: app.config.rotate,
-                align: app.config.align,
-                verticalAlign: app.config.verticalAlign,
-                position: app.config.position,
-                distance: app.config.distance
-            }
-        };
-        source_l2.setOption({
-            series: [{
-                label: labelOption
-            }, {
-                label: labelOption
-            }, {
-                label: labelOption
-            }, {
-                label: labelOption
-            }]
-        });
-    }
-};
-
-
-var labelOption = {
-    show: true,
-    position: app.config.position,
-    distance: app.config.distance,
-    align: app.config.align,
-    verticalAlign: app.config.verticalAlign,
-    rotate: app.config.rotate,
-    formatter: '{c}  {name|{a}}',
-    fontSize: 16,
-    rich: {
-        name: {
-        }
-    }
-};
 
 var language_l2_option = {
     tooltip: {
@@ -95,7 +12,9 @@ var language_l2_option = {
         }
     },
     legend: {
-        data: ['Forest', 'Steppe']
+        textStyle: {
+    		color: "white"
+    	},
     },
     toolbox: {
         show: true,
@@ -110,18 +29,45 @@ var language_l2_option = {
             saveAsImage: {show: true}
         }
     },
-    xAxis: [
-        {
-            type: 'category',
-            // axisTick: {show: false},
-            data: ['2012', '2013']
-        }
-    ],
-    yAxis: [
-        {
-            type: 'value'
-        }
-    ],
+    xAxis: [{
+    	type: 'category',
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    	},
+    	axisLine: {
+    		show:false
+    	},
+    	splitLine: {
+    		show: false
+    	},
+    }],
+    yAxis: [{
+    	type: 'value',
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    		fontSize: 10
+    	},
+    	axisLine: {
+    		lineStyle: {
+    			color: "rgba(255, 255, 255, .1)",
+    			width: 1
+    		}
+    	},
+    	splitLine: {
+    		lineStyle: {
+    			color: "rgba(255, 255, 255, .1)",
+    			width: 1
+    		}
+    	},
+    }],
+	grid: {
+		top: '15%',
+		left: '0%',
+		right: '0%',
+		bottom: '0%',
+		show: false,
+		containLabel: true
+	},
     series: [
         {
             name: 'Forest',
