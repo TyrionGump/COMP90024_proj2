@@ -1,3 +1,15 @@
+# ====================================
+# COMP90024 Cluster and Cloud Computing
+# Group 22 - Assignment 2
+# Ran Liang 1162222
+# Yulun Huang 910398
+# Yubo Sun 1048638
+# Yanhao Wang 1142087
+# Xindi Fang 749394
+# Last Updated: 2021-05-25
+# Description: Retrieve data from couchdb for frontend
+# ====================================
+
 import couchdb
 import time
 import json
