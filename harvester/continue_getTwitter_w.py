@@ -7,7 +7,8 @@
 # Yanhao Wang 1142087
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
-# Description: Twitter harvester with twitter access from Wang
+# Description: This document is used to fetch tweets through Twitter API and save them to the database
+# Related DB Name: yanhao-test
 # ====================================
 
 import tweepy
