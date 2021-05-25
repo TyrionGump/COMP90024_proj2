@@ -39,6 +39,6 @@ Xindi Fang 		749394
 
 ### Links
 
-Web address: http://172.26.130.240:5000 (Need connection to the unimelb network first)
+Web address: http://172.26.128.226:5000 (Need connection to the unimelb network first)
 
 Demonstration Video link: https://youtube.com/playlist?list=PLTaCIQqMUNXi4Ek6jbj0JMC2ZhHlzFexI
