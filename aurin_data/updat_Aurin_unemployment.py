@@ -9,7 +9,7 @@ if couchclient.__contains__(datainfo):
 couchclient.create(datainfo)
 db = couchclient[datainfo]
 
-with open("D:\MDS\COMP90024\\aurin_unemployment\enp.json") as f:
+with open("enp.json") as f:
     data = json.load(f)
 
 
