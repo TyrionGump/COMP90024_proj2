@@ -49,6 +49,9 @@ def unemployment():
     return render_template('unemployment.html')
 
 
+@app.route('/aboutUs.html', methods=['GET', 'POST'])
+def about_us():
+    return render_template('aboutUs.html')
 # 1 -------------------------------------------------------------- Language 部分 start
 @app.route('/language/l1')
 def get_language_l1_data():

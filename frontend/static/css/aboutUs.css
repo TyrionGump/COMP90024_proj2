@@ -1,0 +1,90 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: 0;
+}
+
+li {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	/* Use an image as a background and set it always staying at the center
+	although the size of the web page may change. */
+	background: url(../images/bg.jpg) no-repeat top center;
+	line-height: 1.15;
+	margin: 0;
+}
+
+header {
+	height: 0.625rem;
+	background: url(../images/head_bg.png) no-repeat;
+	background-size: 100% 100%;
+}
+
+#headMenu {
+	position: absolute;
+	width: 10rem;
+	line-height: 0.625rem;
+}
+
+#headMenu ul {
+	display: flex;
+	line-height: 0.625rem;
+}
+
+#headMenu ul li {
+	font-size: 0.15rem;
+	flex: 1;
+	line-height: 0.625rem;
+	align-content: center;
+}
+
+.dropdown_content {
+	display: none;
+	position: absolute;
+	background-color: #29527e;
+	min-width: 1rem;
+	padding: 0.05rem;
+	z-index: 2;
+}
+
+.dropdown_op {
+	font-size: 0.1rem;
+	max-height: 0.3125rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.dropdown:hover .dropdown_content {
+	display: block;
+}
+
+.mainbox {
+	display: flex;
+	min-width: 1024px;
+	max-width: 1920px;
+	margin: 0 auto;
+	padding: 0.125rem 0.125rem 0;
+	/* background-color: pink; */
+}
+
+.column {
+	flex: 2;
+	padding: 0.125rem 0.125rem 0;
+}
+
+.member {
+	position: absolute;
+	top: 35%;
+	right: 5%;
+	color: #F1F1F1;
+	font-size: 0.25rem;
+	line-height: 0.625rem;
+}
