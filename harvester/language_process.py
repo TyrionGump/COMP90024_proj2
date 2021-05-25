@@ -64,7 +64,7 @@ for rows in db.find(mango_placewithlanguage):
 db_language = couchclient['language_placename']
 db_language.save(dictt)
 
-#
+
 
 for rows in db.find(mango_languagewithpands):
     if list(rows.values())[0] not in dict2.keys():
@@ -82,12 +82,10 @@ for key in list(set(dictt) | set(dict2)):
         if key == "_id" or "_rev":
             continue
         dict_avg.update({key:dictt.get(key) or dict2.get(key)})
-# print(len(dict_avg))
-# print(len(dict))
-# print(len(dict2))
+
 db_language2 = couchclient['language_psavg']
 db_language2.save(dict_avg)
-#
+
 
 
 
@@ -107,7 +105,7 @@ for rows in db.find(mango_placewithlanguage):
 db_language_place_number = couchclient['language_place_number']
 db_language_place_number.save(dict3)
 
-#
+
 
 
 
