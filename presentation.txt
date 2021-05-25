@@ -1,1 +1,7 @@
 123
+
+
+Unemployment:
+In the scenario studying unemployment, we found that the most number of the mentioned related word is “recession”. Other words such as “inflation” and “employment” reveal popular topics across Australia. As shown in the left plot on the top, we can see that the popularity of the topic gets significantly increased in the middle of May. The result somehow makes sense as we compared it with the News in that period that the Labour’s budget plan released and the new cases of COVID-19 found in Australia. On the other hand, the result may be biased since during the system updated the crawler was not working 24/7 in early May.
+ 
+The plot on the top right study the relationship between the unemployment rate and the sentimental appearance in different cities. Due to the GCCSA spatial level is not fully suitable for our chosen cities, the data is only compared across Melbourne, Sydney, Adelaide, Brisbane and Perth. By the assumption that a higher unemployment rate may affect the popularity of the unemployment topics discussed on Twitter, we test our hypothesis over the overall unemployment rate(All labour force) and the youth unemployment rate(18 – 24 years old labour unemployment rate). The result given above shows that the total unemployment rate in each city is positively correlated with the average polarities.
