@@ -7,7 +7,11 @@
 # Yanhao Wang 1142087
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
-# Description: Remove duplicate tweets
+# Description:
+# This document is used to remove the duplicate tweets and save the unique tweets to the no_duplicate_twitter database.
+# Every time this document is executed, It will record how many tweets have been processed from the database which
+# contains duplicate tweets. Next time when this document is executed, only new tweets will be processed.
+# Related DB Name: yanhao_test, lines_processed, no_duplicate_twitter
 # ====================================
 
 import time
