@@ -37,3 +37,14 @@
         
     - name: unzip
       raw: tar -xzf /home/ubuntu/COMP90024/frontend.tgz -C /home/ubuntu/COMP90024/
+      
+    - name: install dependencies
+      become: yes
+      pip:
+        name: ['flask', 'couchdb', 'numpy', 'pandas', 'gunicorn']
+        state: latest
+      
+    - name: run frontend 
+      raw: cd /home/ubuntu/COMP90024/frontend/; gunicorn  --workers=20 -D app:app -b 0.0.0.0:5000
+      
+    

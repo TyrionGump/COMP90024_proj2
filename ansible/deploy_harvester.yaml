@@ -12,6 +12,12 @@
   become: yes
   become_method: sudo
   tasks:
+    - name: install dependencies
+      become: yes
+      pip:
+        name: ['tweepy', 'couchdb', 'textblob']
+        state: latest
+        
     - name: check whether /home/ubuntu/COMP90024/harvester directory exists
       stat:
           path: /home/ubuntu/COMP90024/harvester
