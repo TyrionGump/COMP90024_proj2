@@ -1,7 +1,10 @@
 import couchdb
 import json
-from textblob import TextBlob
-
+"""
+Last Updated: 2021.05.25
+By: Yulun Huang
+Content: Upload the unemployment data from AURIN to CouchDB database with preprocessed format.
+"""
 couchclient = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
 datainfo = "aurin_unemp"
 if couchclient.__contains__(datainfo):
