@@ -1,4 +1,3 @@
-
 # ====================================
 # COMP90024 Cluster and Cloud Computing
 # Group 22 - Assignment 2
@@ -8,8 +7,10 @@
 # Yanhao Wang 1142087
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
-# Description:
-# Related DB Name:
+# Description:Create all related views used by the front-end. Included all information for the scenario: vaccine, time, unemployment, source.
+# Related DB Name: no-duplicate-twitter
+# MapReduce Program Language: JavaScript
+# Comment: This file would take a long period of time updating the database. Be aware while Execution.
 # =========================
 
 import logging
