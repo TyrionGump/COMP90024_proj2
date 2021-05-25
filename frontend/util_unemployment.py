@@ -7,7 +7,8 @@
 # Yanhao Wang 1142087
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
-# Description: data for unemployment scenario
+# Description:
+# Related DB Name:
 # ====================================
 
 import couchdb
@@ -144,5 +145,3 @@ def unemp_with_aurin():
                 aurin_youth_unemp_rate.append("%.3f" % round(row.value, 3))
     legend = ["Youth Unemployment rate vs. Polarity", 'Unemployment Rate vs. Polarity']
     return legend, aurin_unemp_rate,aurin_youth_unemp_rate,polar_unemp_rate,polar_youth_unemp_rate
-
-print(unemployment_cloud())

@@ -7,7 +7,8 @@
 # Yanhao Wang 1142087
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
-# Description: data for time scenario
+# Description:
+# Related DB Name:
 # ====================================
 
 import couchdb
@@ -149,7 +150,6 @@ def time_region_count_percent_plot():
         output.append({time_list[i].strip():temp})
     return output
 
-print(time_region_count_percent_plot()[23])
 
 # time data for r2
 def time_cloud():

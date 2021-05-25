@@ -7,7 +7,8 @@
 # Yanhao Wang 1142087
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
-# Description: data for vaccine scenario
+# Description:
+# Related DB Name:
 # ====================================
 
 import couchdb

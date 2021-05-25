@@ -8,7 +8,7 @@ var unemployment_r2_option = {
 	series: [{
 		type: 'wordCloud',
 		grid: 10,
-		sizeRange: [15, 70],
+		sizeRange: [15, 50],
 		rotationRange: [-45, 0, 45, 90],
 		textStyle: {
 			color: function() {

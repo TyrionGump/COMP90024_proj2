@@ -7,7 +7,8 @@
 # Yanhao Wang 1142087
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
-# Description: Front end application
+# Description:
+# Related DB Name:
 # ====================================
 
 from flask import Flask
@@ -64,7 +65,7 @@ def unemployment():
 @app.route('/aboutUs.html', methods=['GET', 'POST'])
 def about_us():
     return render_template('aboutUs.html')
-# 1 -------------------------------------------------------------- Language 部分 start
+# 1 -------------------------------------------------------------- Language start
 @app.route('/language/l1')
 def get_language_l1_data():
     language_l1_data = utils_language.get_language_l1_data()
@@ -74,9 +75,6 @@ def get_language_l1_data():
 @app.route('/language/l2')
 def get_language_l2_data():
     language_l2_data = utils_language.get_language_l2_data()
-    # {'legend': ['score_1', 'score_2'],
-    #  'xAxis': ['Chinese', 'English', 'Spanish', 'Germany'],
-    #  'data': [[100, 200, 234, 567], [200, 100, 123, 145]]}
     return jsonify(language_l2_data)
 
 
@@ -99,9 +97,9 @@ def get_language_r2_data():
     return jsonify(language_r2_data)
 
 
-# 1 -------------------------------------------------------------- Language 部分 end
+# 1 -------------------------------------------------------------- Language end
 
-# 2 -------------------------------------------------------------- Source 部分 start
+# 2 -------------------------------------------------------------- Source start
 
 @app.route('/source/l1')
 def get_source_l1_data():
@@ -143,9 +141,9 @@ def get_source_r2_data():
     return jsonify(source_r2_data)
 
 
-# 2 -------------------------------------------------------------- Source 部分 end
+# 2 -------------------------------------------------------------- Source end
 
-# 3 -------------------------------------------------------------- Period 部分 start
+# 3 -------------------------------------------------------------- Period start
 @app.route('/period/l1')
 def get_period_l1_data():
     period_l1_data = {'xAxis': [str(i).zfill(2) for i in range(24)],
@@ -184,9 +182,9 @@ def get_period_r2_data():
     return jsonify(period_r2_data)
 
 
-# 3 -------------------------------------------------------------- Period 部分 end
+# 3 -------------------------------------------------------------- Period end
 
-# 4 -------------------------------------------------------------- Vaccine 部分 start
+# 4 -------------------------------------------------------------- Vaccine start
 @app.route('/vaccine/l1')
 def get_vaccine_l1_data():
     vaccine_l1_original_date = utils_vaccine.vaccine_date_count()
@@ -226,9 +224,9 @@ def get_vaccine_r2_data():
     return jsonify(vaccine_r2_data)
 
 
-# 4 -------------------------------------------------------------- Vaccine 部分 end
+# 4 -------------------------------------------------------------- Vaccine end
 
-# 5 -------------------------------------------------------------- Unemployment 部分 start
+# 5 -------------------------------------------------------------- Unemployment start
 @app.route('/unemployment/l1')
 def get_unemployment_l1_data():
     unemployment_l1_original_data = util_unemployment.unemp_date_count()
@@ -266,6 +264,7 @@ def get_unemployment_r1_data():
 def get_unemployment_r2_data():
     unemployment_r2_data = util_unemployment.unemployment_cloud()
     return jsonify(unemployment_r2_data)
+
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5000)
