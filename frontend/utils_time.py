@@ -130,13 +130,14 @@ def time_region_count_percent_plot():
     for i in range(24):
         temp=[]
         for j in range(len(mat[0])):
-            print(eight_key_l1[j])
-            print(mat[i][j])
-            print(total[j])
+            # print(eight_key_l1[j])
+            # print(mat[i][j])
+            # print(total[j])
             temp.append({'name':eight_largest_city[j].strip(),'value':mat[i][j]/total[j]})
         output.append({time_list[i].strip():temp})
     return output
 
+print(time_region_count_percent_plot()[23])
 
 # time data for r2
 def time_cloud():
