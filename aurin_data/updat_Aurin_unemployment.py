@@ -4,6 +4,7 @@ import json
 Last Updated: 2021.05.25
 By: Yulun Huang
 Content: Upload the unemployment data from AURIN to CouchDB database with preprocessed format.
+CouchDB Databsae: aurin_unemp
 """
 couchclient = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
 datainfo = "aurin_unemp"
