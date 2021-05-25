@@ -1,7 +1,12 @@
 import couchdb
 import json
 from language_tags import tags
-
+"""
+Last Updated: 2021.05.25
+By: Yulun Huang
+Content: Upload the language spoken at home 2020 data from AURIN to CouchDB database with preprocessed format.
+CouchDB Databsae: aurin_language
+"""
 couchclient = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
 datainfo = "aurin_language"
 if couchclient.__contains__(datainfo):
