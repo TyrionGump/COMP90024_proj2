@@ -66,20 +66,6 @@ if db2.__len__() == 0:
     db3 = couchclient['lines_processed']
     db3.save({"lines_processed": db.__len__()})
     save(db, duplicate_mango)
-    # for items in db.find(duplicate_mango):
-    #     # print(items["_rev"])
-    #     if items["_rev"] not in dic1.keys():
-    #         dic1.update({items["_rev"]: items})
-    #     else:
-    #         continue
-    # # print(len(dic1))
-    # for items in dic1.values():
-    #     db2.save(
-    #         {"id": items["id"], "createtime": items["createtime"], "source": items["source"], "text": items["text"],
-    #          "username": items["username"],
-    #          "userlocation": items["userlocation"], "lang": items["lang"], "placename": items["placename"],
-    #          "geo": items["geo"],
-    #          "polarity": items["polarity"], "subjectivity": items["subjectivity"]})
 
 
 else:
