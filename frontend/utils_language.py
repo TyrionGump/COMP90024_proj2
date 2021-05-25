@@ -50,7 +50,7 @@ def get_language_l2_data():
     dict3 = {'name':'score',
              'legend':['polarity','subjective'],
              'xAxis': [i for i in i3.keys()],
-             'data':[[j[0] for j in i3.values()],[j[1] for j in i3.values()]]
+             'data':[[round(j[0], 4) for j in i3.values()],[round(j[1], 4) for j in i3.values()]]
              }
     return dict3
 
@@ -116,16 +116,16 @@ def get_language_r1_data():
     for k, v in dictaurin.items():
         if k in dicttwifinal.keys():
             keys = []
-            values = [{"value": 5, "itemStyle": {"color": '#008000'}},
-                      {"value": 4, "itemStyle": {"color": '#008000'}},
-                      {"value": 3, "itemStyle": {"color": '#008000'}},
-                      {"value": 2, "itemStyle": {"color": '#008000'}},
-                      {"value": 1, "itemStyle": {"color": '#008000'}},
-                      {"value": 5, "itemStyle": {"color": '#FF0000'}},
-                      {"value": 4, "itemStyle": {"color": '#FF0000'}},
-                      {"value": 3, "itemStyle": {"color": '#FF0000'}},
-                      {"value": 2, "itemStyle": {"color": '#FF0000'}},
-                      {"value": 1, "itemStyle": {"color": '#FF0000'}}
+            values = [{"value": 5, "itemStyle": {"color": '#f15c80'}},
+                      {"value": 4, "itemStyle": {"color": '#f15c80'}},
+                      {"value": 3, "itemStyle": {"color": '#f15c80'}},
+                      {"value": 2, "itemStyle": {"color": '#f15c80'}},
+                      {"value": 1, "itemStyle": {"color": '#f15c80'}},
+                      {"value": 5, "itemStyle": {"color": '#40e0d0'}},
+                      {"value": 4, "itemStyle": {"color": '#40e0d0'}},
+                      {"value": 3, "itemStyle": {"color": '#40e0d0'}},
+                      {"value": 2, "itemStyle": {"color": '#40e0d0'}},
+                      {"value": 1, "itemStyle": {"color": '#40e0d0'}}
                       ]
             data = []
             for items in v.items():

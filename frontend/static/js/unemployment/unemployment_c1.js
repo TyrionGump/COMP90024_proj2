@@ -8,16 +8,14 @@ var unemployment_c1_option = {
 	tooltip: {
 		trigger: "item",
 	},
-	// "toolbox": {
-	// 	"show": true,
-	// 	"orient": "vertical",
-	// 	"left": "right",
-	// 	"top": "center",
-	// 	"feature": {
-	// 		"restore": {},
-	// 		"saveAsImage": {}
-	// 	}
-	// },
+	title: {
+		text: "Sentiment Score Map for Unemployment",
+		left: "center",
+		textStyle: {
+			color: "white",
+			fontSize:15
+		}
+	},
 	"geo": {
 		"map": "Australia",
 		"roam": false,

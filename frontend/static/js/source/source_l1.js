@@ -8,12 +8,6 @@ var source_l1_option = {
 			color: "white"
 		},
     },
-    toolbox: {
-		top: "0%",
-        feature: {
-            saveAsImage: {}
-        }
-    },
     xAxis: {
     	type: 'category',
     	axisLabel: {

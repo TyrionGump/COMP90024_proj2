@@ -80,6 +80,7 @@ def get_language_r1_data():
 @app.route('/language/r2', methods=['GET', 'POST'])
 def get_language_r2_data():
     language_r2_data = utils_language.get_language_r2_data()
+
     return jsonify(language_r2_data)
 
 
@@ -124,7 +125,6 @@ def get_source_r2_data():
     source_r2_data = {'android': source_r2_original_data[0]['Twitter for Android'],
                       'ios': source_r2_original_data[1]['Twitter for iPhone']
                       }
-
     return jsonify(source_r2_data)
 
 

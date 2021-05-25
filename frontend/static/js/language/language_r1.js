@@ -53,7 +53,7 @@ var language_r1_option = {
 		},
 	},
 	series: [{
-		name: "Language Number",
+		name: "Sort Rate",
 		data: [2, 3, 4],
 		type: 'bar'
 	}]

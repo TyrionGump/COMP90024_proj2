@@ -85,7 +85,7 @@ brisbane_wordcloud_data.addEventListener("click", function() {
 })
 var adelaide_wordcloud_data = document.getElementById('Adelaide_wordcloud');
 adelaide_wordcloud_data.addEventListener("click", function() {
-	get_language_r1_dataa({"name": "Adelaide"})
+	get_language_r1_data({"name": "Adelaide"})
 })
 
 

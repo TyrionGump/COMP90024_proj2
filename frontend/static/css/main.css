@@ -120,7 +120,9 @@ header {
 
 .introduction {
 	position: absolute;
-	top: 30%;
-	right: 15%;
+	top: 35%;
+	right: 5%;
 	color: #F1F1F1;
+	font-size: 0.25rem;
+	line-height: 0.625rem;
 }

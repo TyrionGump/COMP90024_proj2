@@ -9,7 +9,7 @@
 		<script src="../static/js/echarts-wordcloud.min.js"></script>
 		<script src="../static/js/Australia.js"></script>
 		<link href="../static/css/period.css" , rel="stylesheet" />
-		<title>Period</title>
+		<title>Time</title>
 	</head>
 	<body>
 		<header>
@@ -21,54 +21,51 @@
 						<div class="dropdown">
 							<span style="color:whitesmoke">Topic</span>
 							<div class="dropdown_content">
-								<div class="dropdown_op"><a class="dropdown_link" , href="language.html" ,
-										style="color:whitesmoke">Language</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="vaccine.html" ,
+										style="color:whitesmoke">Vaccine</a></div>
 								<div class="dropdown_op"><a class="dropdown_link" , href="source.html" ,
 										style="color:whitesmoke">Source</a></div>
 								<div class="dropdown_op"><a class="dropdown_link" , href="period.html" ,
-										style="color:whitesmoke">Period</a></div>
-								<div class="dropdown_op"><a class="dropdown_link" , href="vaccine.html" ,
-										style="color:whitesmoke">Vaccine</a></div>
+										style="color:whitesmoke">Time</a></div>
 								<div class="dropdown_op"><a class="dropdown_link" , href="unemployment.html" ,
 										style="color:whitesmoke">Unemployment</a></div>
+								<div class="dropdown_op"><a class="dropdown_link" , href="language.html" ,
+										style="color:whitesmoke">Language</a></div>
 							</div>
 						</div>
 					</li>
 					<li><a href="hello.html" , style="color:whitesmoke">About us</a></li>
-					<li><a href="hello.html" , style="color:whitesmoke">Contact</a></li>
 				</ul>
 			</div>
 		</header>
 		<div id="title">
-			<h1>Period</h1>
+			<h1>Time</h1>
 		</div>
-		<div id="time">我是时间</div>
 		<div class="mainbox">
 			<div class="column">
 				<div class="panel l1">
-					<h2>整个澳洲不同时间段的发推数量折线图</h2>
+					<h2>Number of Tweets over 24 hours</h2>
 					<div id="period_l1" , class="chart"></div>
 					<div class="panel_footer"></div>
 				</div>
 				<div class="panel l2">
-					<h2>不用Period对应的score这线图</h2>
+					<h2>Sentiment Score Time Map</h2>
 					<div id="period_l2" , class="chart"></div>
 					<div class="panel_footer"></div>
 				</div>
 			</div>
 			<div class="column">
-				<div id="period_description"><h2>描述一下这个页面</h2></div>
-				<div id="period_c1", class="map">一张map</div>
+				<div id="period_c1", class="map">a map</div>
 			</div>
 			<div class="column">
 				<div class="panel r1">
-					<h2>不同地区的不同时间段对应的推特数量比例</h2>
+					<h2>Proportion of Tweets over 24 Hours</h2>
 
 					<div id="period_r1", class="chart"></div>
 					<div class="panel_footer"></div>
 				</div>
 				<div class="panel r2">
-					<h2>不同时间段喜欢发推特的城市词云图<div id="choose_city">
+					<h2>Different Periods Tweet Polarity Cloud<div id="choose_city">
 							<span>(Switch)</span>
 							<div class="dropdown_content">
 								<div class="dropdown_op"><a class="dropdown_link" , id="morning_wordcloud", href="javascript:;" ,

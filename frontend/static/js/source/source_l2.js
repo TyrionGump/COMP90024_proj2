@@ -20,19 +20,6 @@ var source_l2_option = {
 		show: false,
 		containLabel: true
 	},
-    toolbox: {
-        show: true,
-        orient: 'vertical',
-        left: 'right',
-        top: 'center',
-        feature: {
-            mark: {show: true},
-            dataView: {show: true, readOnly: false},
-            magicType: {show: true, type: ['line', 'bar', 'stack', 'tiled']},
-            restore: {show: true},
-            saveAsImage: {show: true}
-        }
-    },
     xAxis: [{
     	type: 'category',
     	axisLabel: {

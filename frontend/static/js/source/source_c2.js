@@ -8,16 +8,14 @@ var source_c2_option = {
 	tooltip: {
 		trigger: "item",
 	},
-	// "toolbox": {
-	// 	"show": true,
-	// 	"orient": "vertical",
-	// 	"left": "right",
-	// 	"top": "center",
-	// 	"feature": {
-	// 		"restore": {},
-	// 		"saveAsImage": {}
-	// 	}
-	// },
+	title: {
+		text: "Sentiment Score Map for iPhone",
+		left: "center",
+		textStyle: {
+			color: "white",
+			fontSize:12
+		}
+	},
 	"geo": {
 		"map": "Australia",
 		"roam": false,
