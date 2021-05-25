@@ -62,7 +62,6 @@ function get_period_r1_data() {
              '1 3', '1 4', '1 5', '1 6', '1 7', '1 8', '1 9', '2 0', '2 1', '2 2', '2 3']
 			for (var i = 0; i < 24; i++) {
 				period_r1_option.options[i].series[0].data = series_data[i][period_idx[i]];
-				alert(period_r1_option.options[i].series[0].data)
 			}
 			period_r1.setOption(period_r1_option);
 		},

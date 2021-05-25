@@ -11,7 +11,7 @@ import utils_language
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
-# app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
+app.config['SEND_FILE_MAX_AGE_DEFAULT'] = timedelta(seconds=1)
 
 
 @app.route('/')

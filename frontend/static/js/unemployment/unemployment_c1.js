@@ -5,44 +5,46 @@ var unemployment_map_data = [{name: 'melbourne', value: [144.96316, -37.81422, [
 					   {name: 'brisbane', value: [153.021072, -27.470125, [1000, 2000]]}]
 
 var unemployment_c1_option = {
-	"title": {
-		"text": "Android"
-	},
 	tooltip: {
 		trigger: "item",
 	},
-	"toolbox": {
-		"show": true,
-		"orient": "vertical",
-		"left": "right",
-		"top": "center",
-		"feature": {
-			"restore": {},
-			"saveAsImage": {}
-		}
-	},
+	// "toolbox": {
+	// 	"show": true,
+	// 	"orient": "vertical",
+	// 	"left": "right",
+	// 	"top": "center",
+	// 	"feature": {
+	// 		"restore": {},
+	// 		"saveAsImage": {}
+	// 	}
+	// },
 	"geo": {
-		"map": "澳大利亚",
+		"map": "Australia",
 		"roam": false,
 		"label": {
 			"emphasis": {
 				"show": true,
 				"textStyle": {
-					"color": "#000"
-				}
+					"color": "#000",
+				},
+				
 			}
 		},
 		"itemStyle": {
 			"normal": {
-				"areaColor": "#293C55",
-				"borderColor": "#fff"
+				borderWidth: .5,
+				borderColor: '#009fe8',
+				areaColor: '#ffefd5' 
+				
 			},
 			"emphasis": {
-				"areaColor": "yellow"
+				borderWidth: .5,
+				borderColor: '#4b0002',
+				areaColor: '#fff',
 			}
 		},
 		aspectScale: 1,
-		zoom: 1.5,
+		zoom: 2.4,
 		center: [133.78, -25.27]
 	},
 }
@@ -50,19 +52,19 @@ var unemployment_c1_option = {
 var unemployment_c1_scatter_option = {
 	z: 5,
 	series: [{
-		name: '销量', // series名称
-		type: 'scatter', // series图表类型
-		coordinateSystem: 'geo', // series坐标系类型
+		name: 'Average Polarity', 
+		type: 'scatter', 
+		coordinateSystem: 'geo',
 		data: unemployment_map_data,
 		symbolSize: function(val) {
-			return val[2][0] * 200;
+			return val[2][0] * 250;
 		},
 		encode: {
 			tooltip: [2],
 		},
 		tooltip: {
 			formatter: function(params) {
-				return params.marker + ' ' + params.name + '<br/>' + 'Average Polarity for unemployment: ' + params.value[2]
+				return params.marker + ' ' + params.name + '<br/>' + 'Average Polarity: ' + params.value[2]
 			},
 		}
 

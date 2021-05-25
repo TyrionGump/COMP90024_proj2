@@ -11,18 +11,33 @@ var unemployment_r1_option = {
         }
     },
     legend: {
-        data:['2015 降水量', '2016 降水量']
+        textStyle: {
+        	color: "white"
+        },
     },
     grid: {
-        top: 70,
-        bottom: 50
+    	top: '20%',
+    	left: '3%',
+    	right: '3%',
+    	bottom: '0%',
+    	show: true,
+    	borderColor: "rgba(255, 255, 255, .1)",
+    	containLabel: true
     },
     xAxis: [
         {	axisLabel: {
-			interval: 0
+			interval: 0,
+			color: "rgba(255, 255, 255, .6)",
+			fontSize: 10
 		},
             type: 'category',
+			splitLine: {
+				lineStyle: {
+					color: "rgba(255, 255, 255, .1)"
+				}
+			},
             axisTick: {
+				show: false,
                 alignWithLabel: true
             },
             axisLine: {
@@ -34,7 +49,7 @@ var unemployment_r1_option = {
             axisPointer: {
                 label: {
                     formatter: function (params) {
-                        return '降水量  ' + params.value
+                        return 'Unemployment Rate  ' + params.value
                             + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
                     }
                 }
@@ -43,7 +58,14 @@ var unemployment_r1_option = {
         },
         {
             type: 'category',
+            splitLine: {
+            	lineStyle: {
+            		color: "rgba(255, 255, 255, .1)"
+            		
+            	}
+            },
             axisTick: {
+            	show: false,
                 alignWithLabel: true
             },
             axisLine: {
@@ -52,10 +74,15 @@ var unemployment_r1_option = {
                     color: colors[0]
                 }
             },
+			axisLabel: {
+				interval: 0,
+				color: "rgba(255, 255, 255, .6)",
+				fontSize: 10
+			},
             axisPointer: {
                 label: {
                     formatter: function (params) {
-                        return '降水量  ' + params.value
+                        return 'Unemployment Rate  ' + params.value
                             + (params.seriesData.length ? '：' + params.seriesData[0].data : '');
                     }
                 }
@@ -65,12 +92,27 @@ var unemployment_r1_option = {
     ],
     yAxis: [
         {
-            type: 'value'
+            type: 'value',
+			axisLabel: {
+				color: "rgba(255, 255, 255, .6)",
+				fontSize: 10
+			},
+			axisTick: {
+				show: false
+			},
+			axisLine: {
+				show: false
+			},
+			splitLine: {
+				lineStyle: {
+					color: '#012f4a'
+				}
+			}
         }
     ],
     series: [
         {
-            name: '2015 降水量',
+            name: '',
             type: 'line',
             xAxisIndex: 1,
             smooth: true,
@@ -80,7 +122,7 @@ var unemployment_r1_option = {
             data: [2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3]
         },
         {
-            name: '2016 降水量',
+            name: '',
             type: 'line',
             smooth: true,
             emphasis: {

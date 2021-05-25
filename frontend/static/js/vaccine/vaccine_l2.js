@@ -6,41 +6,73 @@ var vaccine_l2_option = {
         trigger: 'axis'
     },
     legend: {
-        data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
-    },
-    grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
-        containLabel: true
+        textStyle: {
+			color: "white"
+		},
     },
     toolbox: {
+		top: "0%",
         feature: {
             saveAsImage: {}
         }
     },
     xAxis: {
-        type: 'category',
-        boundaryGap: false,
-        data: ['周一', '周二', '周三', '周四', '周五', '周六', '周日']
+    	type: 'category',
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    	},
+    	axisLine: {
+    		show:false
+    	},
+    	splitLine: {
+    		show: false
+    	},
+    	axisTick: {
+    		show: false
+    	},
     },
     yAxis: {
-        type: 'value'
+    	type: 'value',
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    		fontSize: 10
+    	},
+    	axisLine: {
+    		lineStyle: {
+    			color: "rgba(255, 255, 255, .1)",
+    			width: 1
+    		}
+    	},
+    	splitLine: {
+    		lineStyle: {
+    			color: "rgba(255, 255, 255, .1)",
+    			width: 1
+    		}
+    	},
     },
+    grid: {
+    	top: '15%',
+    	left: '2%',
+    	right: '3%',
+    	bottom: '0%',
+    	show: false,
+    	borderColor: ' #012f4a',
+    	containLabel: true
+    },
+	color: ["#00f2f1", "#ed3f35"],
     series: [
         {
-            name: '邮件营销',
             type: 'line',
-            data: [120, 132, 101, 134, 90, 230, 210]
+            data: [120, 132, 101, 134, 90, 230, 210],
+			smooth: true
         },
         {
-            name: '联盟广告',
             type: 'line',
-            data: [220, 182, 191, 234, 290, 330, 310]
+            data: [220, 182, 191, 234, 290, 330, 310],
+			smooth: true
         }
     ]
 };
-
 
 window.addEventListener('resize', function() {
 	vaccine_l2.resize()

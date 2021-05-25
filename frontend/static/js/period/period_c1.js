@@ -3,44 +3,46 @@ var period_c1_scatter = echarts.init(document.getElementById("period_c1"));
 var period_map_data = [{name: 'melbourne', value: [144.96316, -37.81422, [10000, 20000]]}, {name: 'brisbane', value: [153.021072, -27.470125, [1000, 2000]]}]
 
 var period_c1_option = {
-	"title": {
-		"text": "Austrlia"
-	},
 	tooltip: {
 		trigger: "item",
 	},
-	"toolbox": {
-		"show": true,
-		"orient": "vertical",
-		"left": "right",
-		"top": "center",
-		"feature": {
-			"restore": {},
-			"saveAsImage": {}
-		}
-	},
+	// "toolbox": {
+	// 	"show": true,
+	// 	"orient": "vertical",
+	// 	"left": "right",
+	// 	"top": "center",
+	// 	"feature": {
+	// 		"restore": {},
+	// 		"saveAsImage": {}
+	// 	}
+	// },
 	"geo": {
-		"map": "澳大利亚",
+		"map": "Australia",
 		"roam": false,
 		"label": {
 			"emphasis": {
 				"show": true,
 				"textStyle": {
-					"color": "#000"
-				}
+					"color": "#000",
+				},
+				
 			}
 		},
 		"itemStyle": {
 			"normal": {
-				"areaColor": "#293C55",
-				"borderColor": "#fff"
+				borderWidth: .5,
+				borderColor: '#009fe8',
+				areaColor: '#ffefd5' 
+				
 			},
 			"emphasis": {
-				"areaColor": "yellow"
+				borderWidth: .5,
+				borderColor: '#4b0002',
+				areaColor: '#fff',
 			}
 		},
 		aspectScale: 1,
-		zoom: 1.5,
+		zoom: 2.4,
 		center: [133.78, -25.27]
 	},
 }
@@ -53,7 +55,7 @@ var period_c1_scatter_option = {
 			// loop: false,
 			autoPlay: true,
 			// currentIndex: 2,
-			playInterval: 3000,
+			playInterval: 1500,
 			// controlStyle: {
 			//     position: 'left'
 			// },
@@ -79,7 +81,7 @@ var period_c1_scatter_option = {
 				},
 			},
 			symbolSize: function(val) {
-				return val[2] * 200;
+				return val[2] * 250;
 			},
 		}, ]
 	},

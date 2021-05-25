@@ -12,32 +12,64 @@ var source_r1_option = {
         }
     },
     legend: {
-        data: ['2011年', '2012年']
+        textStyle: {
+    		color: "white"
+    	},
     },
     grid: {
-        left: '3%',
-        right: '4%',
-        bottom: '3%',
+		top: "10%",
+        left: '1%',
+        right: '2%',
+        bottom: '0%',
         containLabel: true
     },
     xAxis: {
-        type: 'value',
-        boundaryGap: [0, 0.01]
+    	type: 'value',
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    		fontSize: 10
+    	},
+    	axisLine: {
+    		lineStyle: {
+    			color: "rgba(255, 255, 255, .1)",
+    			width: 1
+    		}
+    	},
+    	splitLine: {
+    		lineStyle: {
+    			color: "rgba(255, 255, 255, .1)",
+    			width: 1
+    		}
+    	},
+		boundaryGap: [0, 0.01]
     },
+	
     yAxis: {
-        type: 'category',
-        data: ['巴西', '印尼', '美国', '印度', '中国', '世界人口(万)']
+    	type: 'category',
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    	},
+    	axisLine: {
+    		show:false
+    	},
+    	splitLine: {
+    		show: false
+    	},
     },
     series: [
         {
-            name: '2011年',
             type: 'bar',
-            data: [18203, 23489, 29034, 104970, 131744, 630230]
+            data: [18203, 23489, 29034, 104970, 131744, 630230],
+			itemStyle: {
+				barBorderRadius: 3
+			}
         },
         {
-            name: '2012年',
             type: 'bar',
-            data: [19325, 23438, 31000, 121594, 134141, 681807]
+            data: [19325, 23438, 31000, 121594, 134141, 681807],
+			itemStyle: {
+				barBorderRadius: 3
+			}
         }
     ]
 };

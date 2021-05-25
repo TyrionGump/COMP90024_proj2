@@ -38,6 +38,7 @@ header {
 }
 
 #headMenu ul li {
+	font-size: 0.15rem;
 	flex: 1;
 	line-height: 0.625rem;
 	align-content: center;
@@ -46,13 +47,14 @@ header {
 .dropdown_content {
 	display: none;
 	position: absolute;
-	background-color: #f1f1f1;
+	background-color: #29527e;
 	min-width: 1rem;
 	padding: 0.05rem;
 	z-index: 2;
 }
 
 .dropdown_op {
+	font-size: 0.1rem;
 	max-height: 0.3125rem;
 	display: flex;
 	align-items: center;
@@ -65,7 +67,7 @@ header {
 }
 
 #title {
-	font-size: 0.15rem;
+	font-size: 0.2rem;
 	background-color: aquamarine;
 	color: #F1F1F1;
 	text-align: center;

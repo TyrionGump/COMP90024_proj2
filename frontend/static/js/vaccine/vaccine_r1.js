@@ -1,10 +1,55 @@
 var vaccine_r1 = echarts.init(document.getElementById("vaccine_r1"));
 var vaccine_r1_option = {
 	legend: {
-	    data: ['邮件营销', '联盟广告', '视频广告', '直接访问', '搜索引擎'],
+	    textStyle: {
+	    	color: "white",
+			fontSize: 9
+	    },
 	},
-    xAxis: {},
-    yAxis: {},
+    xAxis: {
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    		fontSize: 10
+    	},
+    	axisTick: {
+    		show: false
+    	},
+    	axisLine: {
+    		show: false
+    	},
+		splitLine: {
+			lineStyle: {
+				color: "rgba(255, 255, 255, .1)",
+			}
+		}
+    },
+    yAxis: {
+    	axisLabel: {
+    		color: "rgba(255, 255, 255, .6)",
+    		fontSize: 10
+    	},
+    	axisTick: {
+    		show: false
+    	},
+    	axisLine: {
+    		show: false
+    	},
+    	splitLine: {
+    		lineStyle: {
+    			color: "rgba(255, 255, 255, .1)",
+    		}
+    	}
+    },
+	
+	grid: {
+		top: '20%',
+		left: '2%',
+		right: '2%',
+		bottom: '0%',
+		show: true,
+		borderColor: "rgba(255, 255, 255, .1)",
+		containLabel: true
+	},
     series: [{
         symbolSize: 10,
         data: [

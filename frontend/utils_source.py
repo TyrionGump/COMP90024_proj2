@@ -57,7 +57,7 @@ def source_time_plot():
     output.append(android)
     output.append(IOS)
     return output
-
+#print(source_time_plot())
 
 # source data for l2
 def source_polarity_subjectivity():
@@ -107,11 +107,15 @@ def source_region_pol():
         temp.append(eight_largest_city_index[i][1])
         temp.append(mat[i][0])
         output_Andriod.append({'name': eight_largest_city[i].strip(), 'value': temp})
-        temp.pop()
-        temp.append(mat[i][1])
-        output_IOS.append({'name': eight_largest_city[i].strip(), 'value': temp})
+    for i in range(len(eight_largest_city)):
+        temp1 = []
+        temp1.append(eight_largest_city_index[i][0])
+        temp1.append(eight_largest_city_index[i][1])
+        temp1.append(mat[i][1])
+        output_IOS.append({'name': eight_largest_city[i].strip(), 'value': temp1})
     return output_Andriod, output_IOS
 
+#print(source_region_pol())
 
 # source data for r1
 def source_region_percentage():
@@ -146,11 +150,12 @@ def source_cloud():
     total_count_region = []
     output = []
     for row in review_source_cloud:
-        mat[source_key.index(listToString(row.key[1]))][eight_key.index(listToString(row.key[0]))] = row.value['count']
+        mat[source_key.index(listToString(row.key[1]))][eight_key.index(listToString(row.key[0]))] = row.value['average']
     for i in range(len(source_list)):
         temp = []
         for j in range(len(mat[0])):
             temp.append({'name':eight_largest_city[j].strip(),'value':mat[i][j]})
         output.append({source_list[i].strip():temp})
     return output
+
 

@@ -38,15 +38,17 @@ header {
 }
 
 #headMenu ul li {
+	font-size: 0.15rem;
 	flex: 1;
 	line-height: 0.625rem;
 	align-content: center;
 }
 
 .dropdown_content {
+	font-size: 0.1rem;
 	display: none;
 	position: absolute;
-	background-color: #f1f1f1;
+	background-color: #29527e;
 	min-width: 1rem;
 	padding: 0.05rem;
 	z-index: 2;
@@ -65,8 +67,7 @@ header {
 }
 
 #title {
-	font-size: 0.15rem;
-	background-color: aquamarine;
+	font-size: 0.2rem;
 	color: #F1F1F1;
 	text-align: center;
 	line-height: 0.4rem;
@@ -115,8 +116,7 @@ header {
 	font-weight: 400;
 }
 .chart {
-	height: 4.4rem;
-	background-color: springgreen;
+	height: 4.4rem;	
 }
 
 
@@ -171,11 +171,10 @@ header {
 }
 
 .map {
-	height: 10.6875rem;
+	height: 9rem;
 	border: 1px solid rgba(25, 186, 139, 0.17);
 	padding: 0 0.1875rem 0.5rem;
 	margin-bottom: 0.1875rem;
-	background-color: #FFD700;
 	position: relative;
 }
 
@@ -188,4 +187,13 @@ header {
 #choose_city:hover .dropdown_content {
 	display: block;
 	z-index: 1;
+}
+
+#vaccine_description {
+	font-size: 0.1rem;
+	height: 1rem;
+	border: 1px solid rgba(25, 186, 139, 0.17);
+	padding: 0 0.1875rem 0.5rem;
+	margin-bottom: 0.1875rem;
+	position: relative;
 }

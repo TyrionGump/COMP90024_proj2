@@ -146,7 +146,7 @@ def time_cloud():
     reducing = view_detail['reduce']
     db1 = couch_client3['no_duplicate_twitter']
     review_map1 = db3.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=2)
-    #review_map2 = db.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=None)
+    #review_map = db.iterview('time_analysis/time_region_polarity', db1.__len__(), group=True, group_level=None)
 
     morning=['06','07','08 ','09 ','10','11','12']
     afternoon=['13','14','15','16','17','18','19']
@@ -162,10 +162,11 @@ def time_cloud():
             mat[1][eight_key.index(listToString(row.key[0]))] = row.value['count']
         else:
             mat[2][eight_key.index(listToString(row.key[0]))] = row.value['count']
+
     for i in range(3):
         temp = []
         for j in range(len(mat[0])):
-            temp.append({'name': eight_largest_city[j].strip(), 'value': mat[i][j]})
+            temp.append({'name': eight_largest_city[j].strip(), 'value': mat[i][j]/(mat[0][j]+mat[1][j]+mat[2][j])})
         if i==0:
             output['morning'] = temp
         elif i==1:

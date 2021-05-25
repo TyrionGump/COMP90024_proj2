@@ -86,6 +86,7 @@ def get_language_r2_data():
 def get_language_c1_data():
     dbworld = couch_client['lan_worldmap']
     mango1 = {"selector": {}, "limit": dbworld.__len__()}
+    i2 = None
     for items in dbworld.find(mango1):
         items.pop("_id")
         items.pop("_rev")

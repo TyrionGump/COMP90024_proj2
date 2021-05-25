@@ -5,44 +5,46 @@ var source_map_data = [{name: 'melbourne', value: [144.96316, -37.81422, [10000,
 					   {name: 'brisbane', value: [153.021072, -27.470125, [1000, 2000]]}]
 
 var source_c2_option = {
-	"title": {
-		"text": "IOS"
-	},
 	tooltip: {
 		trigger: "item",
 	},
-	"toolbox": {
-		"show": true,
-		"orient": "vertical",
-		"left": "right",
-		"top": "center",
-		"feature": {
-			"restore": {},
-			"saveAsImage": {}
-		}
-	},
+	// "toolbox": {
+	// 	"show": true,
+	// 	"orient": "vertical",
+	// 	"left": "right",
+	// 	"top": "center",
+	// 	"feature": {
+	// 		"restore": {},
+	// 		"saveAsImage": {}
+	// 	}
+	// },
 	"geo": {
-		"map": "澳大利亚",
+		"map": "Australia",
 		"roam": false,
 		"label": {
 			"emphasis": {
 				"show": true,
 				"textStyle": {
-					"color": "#000"
-				}
+					"color": "#000",
+				},
+				
 			}
 		},
 		"itemStyle": {
 			"normal": {
-				"areaColor": "#293C55",
-				"borderColor": "#fff"
+				borderWidth: .5,
+				borderColor: '#009fe8',
+				areaColor: '#ffefd5' 
+				
 			},
 			"emphasis": {
-				"areaColor": "yellow"
+				borderWidth: .5,
+				borderColor: '#4b0002',
+				areaColor: '#fff',
 			}
 		},
 		aspectScale: 1,
-		zoom: 1.5,
+		zoom: 1.8,
 		center: [133.78, -25.27]
 	},
 }
@@ -55,7 +57,7 @@ var source_c2_scatter_option = {
 		coordinateSystem: 'geo', // series坐标系类型
 		data: source_map_data,
 		symbolSize: function(val) {
-			return (val[2] - 0.083) * 10 / (0.095 - 0.083);
+			return val[2] * 200;
 		},
 		encode: {
 			tooltip: [2],

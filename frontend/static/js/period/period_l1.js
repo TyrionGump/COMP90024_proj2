@@ -3,25 +3,57 @@ var period_l1 = echarts.init(document.getElementById('period_l1'));
 
 var period_l1_option = {
 	tooltip: {
-	    trigger: 'axis'
+		trigger: 'axis'
+	},
+	xAxis: {
+		type: 'category',
+		axisLabel: {
+			color: "rgba(255, 255, 255, .6)",
+		},
+		axisLine: {
+			show:false
+		},
+		splitLine: {
+			show: false
+		},
+		axisTick: {
+			show: false
+		},
+	},
+	yAxis: {
+		type: 'value',
+		axisLabel: {
+			color: "rgba(255, 255, 255, .6)",
+			fontSize: 10
+		},
+		axisLine: {
+			lineStyle: {
+				color: "rgba(255, 255, 255, .1)",
+				width: 1
+			}
+		},
+		splitLine: {
+			lineStyle: {
+				color: "rgba(255, 255, 255, .1)",
+				width: 1
+			}
+		},
 	},
 	grid: {
-	    left: '3%',
-	    right: '4%',
-	    bottom: '3%',
-	    containLabel: true
+		top: '3%',
+		left: '2%',
+		right: '3%',
+		bottom: '0%',
+		show: false,
+		borderColor: ' #012f4a',
+		containLabel: true
 	},
-    xAxis: {
-        type: 'category',
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-    },
-    yAxis: {
-        type: 'value'
-    },
-    series: [{
-        data: [150, 230, 224, 218, 135, 147, 260],
-        type: 'line'
-    }]
+
+	series: [{
+		data: [150, 230, 224, 218, 135, 147, 260],
+		type: 'line',
+		smooth: true
+	}]
 };
 
 window.addEventListener('resize', function() {
