@@ -8,11 +8,7 @@
 # Xindi Fang 749394
 # Last Updated: 2021-05-25
 # Description:
-# This document is divided into four parts:
-# Part one:
-# Part two:
-# Part three:
-# Part four: save the average score which uses total polarity/total number of people to lan_worldmap database
+# This document is created to caculated some values used for language analysis. 
 # Related DB Name: language_place_number, language_placename, language_psavg, lan_worldmap
 # ====================================
 import couchdb
