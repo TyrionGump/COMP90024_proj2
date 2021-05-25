@@ -1,0 +1,32 @@
+---
+- name: Change ownership, group and permissions
+  become: yes
+  file:
+    path: /home/ubuntu/COMP90024/
+    state: directory
+    recurse: yes
+    owner: root
+    group: root
+    mode: 0777
+    
+- name: copy frontend file
+  become: yes
+  copy:
+    src: ../frontend.tgz
+    dest: /home/ubuntu/COMP90024/
+    owner: root
+    group: root
+    mode: 0777
+    
+- name: unzip
+  raw: tar -xzf /home/ubuntu/COMP90024/frontend.tgz -C /home/ubuntu/COMP90024/
+  
+- name: install dependencies
+  become: yes
+  pip:
+    name: ['flask', 'couchdb', 'numpy', 'pandas', 'gunicorn']
+    state: latest
+  
+- name: run frontend 
+  raw: cd /home/ubuntu/COMP90024/frontend/; gunicorn  --workers=20 -D app:app -b 0.0.0.0:5000
+  

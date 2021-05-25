@@ -1,0 +1,29 @@
+---
+- name: install dependencies
+  become: yes
+  pip:
+    name: ['tweepy', 'couchdb', 'textblob']
+    state: latest
+    
+- name: check whether /home/ubuntu/COMP90024/harvester directory exists
+  stat:
+      path: /home/ubuntu/COMP90024/harvester
+  register: directory_stats
+
+- name: Create directory if not yet exists
+  file:
+    path: /home/ubuntu/COMP90024/harvester
+    state: directory
+    mode: 0777
+  when: directory_stats.stat.exists == false
+
+- name: copy harvester file
+  copy:
+    src: ../harvester/continue_getTwitter_h.py
+    dest: /home/ubuntu/COMP90024/harvester/continue_getTwitter_h.py
+    owner: root
+    group: root
+    mode: 0777
+    
+- name: run
+  raw: cd /home/ubuntu/COMP90024/harvester/; python3 continue_getTwitter_h.py >`date +%Y%m%d%H%M`_getTwi.log &
