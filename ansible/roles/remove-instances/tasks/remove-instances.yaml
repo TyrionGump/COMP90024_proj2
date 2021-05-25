@@ -1,12 +1,23 @@
+# ====================================
+# COMP90024 Cluster and Cloud Computing
+# Group 22 - Assignment 2
+# Ran Liang 1162222
+# Yulun Huang 910398
+# Yubo Sun 1048638
+# Yanhao Wang 1142087
+# Xindi Fang 749394
+# Last Updated: 2021-05-25
+# Description: tasks for delete instances
+# ====================================
+
 ---
-# tasks file for delete-instances
 
 - name: Create a list of security group names
   set_fact:
     sg_names: '{{ sg_names|default([]) + [ item.name ] }}'
   loop: '{{ security_groups }}'
 
-# remove an instance on NeCTAR
+# remove instances on MRC
 - name: Remove an instance
   os_server:
     name: '{{ item.name }}'

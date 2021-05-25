@@ -1,6 +1,16 @@
+# ====================================
+# COMP90024 Cluster and Cloud Computing
+# Group 22 - Assignment 2
+# Ran Liang 1162222
+# Yulun Huang 910398
+# Yubo Sun 1048638
+# Yanhao Wang 1142087
+# Xindi Fang 749394
+# Last Updated: 2021-05-25
+# Description: Config instances on MRC
+# ====================================
+
 - hosts: localhost
-  vars:
-    ansible_python_interpreter: /opt/anaconda3/bin/python
   vars_files:
     - host_vars/instances_config.yaml
   gather_facts: true

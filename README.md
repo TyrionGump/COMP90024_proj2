@@ -1,5 +1,17 @@
-# COMP90024_proj2
+# COMP90024 Assignment 2
 
-## Note: To run successfully the ansible
-- Assign the *ansible_python_interpreter* with the path of python in your own machine in create_instances.yaml, config_instances.yaml, create_confi_instances.yaml.
-- The project password: YjgzMzcyYzRkN2Q3MTAy.
+## City Analytics on the Cloud - Group 22
+
+
+
+### Contributors
+
+Ran Liang 		1162222
+
+Yulun Huang 	910398
+
+Yubo Sun 		1048638
+
+Yanhao Wang 	1142087
+
+Xindi Fang 		749394

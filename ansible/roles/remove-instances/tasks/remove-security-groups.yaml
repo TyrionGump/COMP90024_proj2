@@ -1,8 +1,18 @@
----
-# tasks file for create-security-groups
+# ====================================
+# COMP90024 Cluster and Cloud Computing
+# Group 22 - Assignment 2
+# Ran Liang 1162222
+# Yulun Huang 910398
+# Yubo Sun 1048638
+# Yanhao Wang 1142087
+# Xindi Fang 749394
+# Last Updated: 2021-05-25
+# Description: tasks for delete security groups
+# ====================================
 
-# Remove security group rules
-- name: Remove security group rules
+---
+# delete security groups rules
+- name: delete security groups rules
   os_security_group_rule:
     security_group: '{{ item.name }}'
     protocol: '{{ item.protocol }}'
@@ -12,8 +22,8 @@
     state: absent
   loop: '{{ security_groups }}'
 
-# Remove a security group
-- name: Remove a security group
+# delete security groups 
+- name: delete security groups 
   os_security_group:
     name: '{{ item.name }}'
     description: '{{ item.description }}'
