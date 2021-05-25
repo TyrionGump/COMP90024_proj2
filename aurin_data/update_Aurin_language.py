@@ -1,6 +1,5 @@
 import couchdb
 import json
-from textblob import TextBlob
 from language_tags import tags
 
 couchclient = couchdb.Server('http://admin:admin@172.26.130.240:5984/')
